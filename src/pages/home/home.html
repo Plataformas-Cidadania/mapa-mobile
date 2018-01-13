@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-navbar class="nav-home">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <div>
+     <img src="assets/img/simbolo.png" class="img-logo" width="50px" height="50px"/>
+    <ion-title class="title-app"> Mapa das Organizações da Sociedade Civil </ion-title>
+  </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="background-page" (click)="documentClickHandler()">
+  <div style="width: 90vw;">
+    <ion-searchbar #searchbar
+      [(ngModel)]="keyword"
+      [type]="search"
+      [debounce]=250
+      placeholder="Digite o Nome ou CNPJ"
+      (ionInput)="getItems($event)">
+    </ion-searchbar>
+    <ng-template #defaultTemplate let-attrs="attrs">
+  		<span [innerHTML]='(attrs.labelAttribute ? attrs.data[attrs.labelAttribute] : attrs.data) | boldprefix:attrs.keyword'></span>
+  	</ng-template>
+    <ul [ngClass]="visible">
+      <li *ngFor="let item of items" (click)="select(item.tx_nome_osc);">
+        <ng-template [ngTemplateOutlet]="defaultTemplate" [ngOutletContext]=" {attrs:{ data: item.tx_nome_osc, keyword: keyword }}"></ng-template>
+      </li>
+    </ul>
+  </div>
+  <button ion-button color="button" class="busca" (click)="getOsc()">Buscar</button>
+
+  <ion-card class="menu-map">
+    <ion-list>
+      <button ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon name={{p.icon}} item-start></ion-icon>{{p.title}}
+      </button>
+      <a *ngFor="let l of links" href={{l.link}} ion-item><ion-icon name={{l.icon}} item-start></ion-icon>{{l.title}}</a>
+    </ion-list>
+  </ion-card>
+</ion-content>

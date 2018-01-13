@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle >
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Editais para OSCs </ion-title>
+  </ion-navbar>
+
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="editais">
+      <ion-segment-button value="andamento">
+        Em Andamento
+      </ion-segment-button>
+      <ion-segment-button value="encerrado">
+        Encerrado
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="txt-editais">
+              <p>Encontre aqui editais de seleção de projetos oriundos do setor público e do privado que preveem a contratação ou atuação de OSCs em ações e projetos. Interessados na divulgação de editais: encaminhem ao Portal (<a href="https://www.mapaosc.ipea.gov.br/contato.html">contato</a>) os links de editais de interesse das OSCs.
+                Ambiente em fase de aprimoramento. Também aqui, a colaboração é sempre bem-vinda, seja na indicação de novos editais, seja na forma de oportunidades de melhorarias para esta funcionalidade</p>
+              <p>Ressaltamos que os editais são divulgados como parte do trabalho de promover e fortalecer a captação de recursos no Brasil. Não temos responsabilidade sobre eles, tampouco podemos responder dúvidas sobre os mesmos. Toda informação deve ser buscada diretamente com a organização promotora do edital.</p>
+  </div>
+  <div [ngSwitch]="editais">
+    <hr>
+    <ion-list *ngSwitchCase="'andamento'">
+      <div *ngFor="let ativos of itens.ativos; let i = index" [attr.data-index]="i">
+            <ion-card *ngIf="itens">
+                <ion-card-title class="title-edital" (click)="expandItem(editais_ativos[i])">
+                  <ion-icon [name]="editais_ativos[i].expanded ? 'remove' :'add'"></ion-icon>
+                  {{editais_ativos[i].title}}
+                </ion-card-title>
+                <expandable [expanded]="editais_ativos[i].expanded" >
+                  <ion-card-content>
+                    <div><span><strong>Instituição Responsável: </strong>{{(ativos.tx_orgao)?ativos.tx_orgao:"Dado não informado" }}</span></div><br>
+                    <div><span><strong>Nome do Programa: </strong>{{(ativos.tx_programa)?ativos.tx_programa:"Dado não informado"}}</span></div><br>
+                    <div><span><strong>Area de Interesse: </strong>{{(ativos.tx_area_interesse_edital)?ativos.tx_area_interesse_edital:"Dado não informado"}}</span></div><br>
+                    <div><span><strong>Data de Vencimento: </strong>{{(ativos.dt_vencimento)?ativos.dt_vencimento:"Dado não informado"}}</span></div><br>
+                    <div><span><strong>Número da Chamada: </strong>{{(ativos.tx_numero_chamada)?ativos.tx_numero_chamada:"Dado não informado"}}</span></div><br>
+                    <div *ngIf="ativos.tx_link_edital"><span><strong>Edital: </strong><a href='{{ativos.tx_link_edital}}'>Abrir o edital</a></span></div><br>
+                    <div *ngIf="ativos.tx_link_edital == null"><span><strong>Edital: </strong>"Dado não informado"</span></div><br>
+                  </ion-card-content>
+                </expandable>
+            </ion-card>
+          </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'encerrado'">
+      <div *ngFor="let encerrados of itens.encerrados; let j = index" [attr.data-index]="j">
+            <ion-card *ngIf="itens">
+                <ion-card-title class="title-edital" (click)="expandItem(editais_encerrados[j])">
+                  <ion-icon [name]="editais_encerrados[j].expanded ? 'remove' :'add'"></ion-icon>
+                  {{editais_encerrados[j].title}}
+                </ion-card-title>
+                <expandable [expanded]="editais_encerrados[j].expanded" >
+                  <ion-card-content>
+                    <div><span><strong>Instituição Responsável: </strong>{{(encerrados.tx_orgao)?encerrados.tx_orgao:"Dado não informado"}}</span></div><br>
+                    <div><span><strong>Nome do Programa: </strong>{{(encerrados.tx_programa)?encerrados.tx_programa:"Dado não informado"}}</span></div><br>
+                    <div><span><strong>Area de Interesse: </strong>{{(encerrados.tx_area_interesse_edital)?encerrados.tx_area_interesse_edital:"Dado não informado"}}</span></div><br>
+                    <div><span><strong>Data de Vencimento: </strong>{{(encerrados.dt_vencimento)?encerrados.dt_vencimento:"Dado não informado"}}</span></div><br>
+                    <div><span><strong>Número da Chamada: </strong>{{(encerrados.tx_numero_chamada)?encerrados.tx_numero_chamada:"Dado não informado"}}</span></div><br>
+                    <div *ngIf="encerrados.tx_link_edital"><span><strong>Edital: </strong><a href='{{encerrados.tx_link_edital}}'>Abrir o edital</a></span></div><br>
+                    <div *ngIf="encerrados.tx_link_edital == null"><span><strong>Edital: </strong>"Dado não informado"</span></div><br>
+                  </ion-card-content>
+                </expandable>
+            </ion-card>
+          </div>
+    </ion-list>
+  </div>
+</ion-content>

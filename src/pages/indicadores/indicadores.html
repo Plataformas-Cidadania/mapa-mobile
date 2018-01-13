@@ -1,0 +1,195 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Indicadores</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-card>
+  <ion-card-content>
+    <ion-card-title>
+      Distribuição de OSCs por número de empregados e região, Brasil - 2014
+      </ion-card-title>
+  </ion-card-content>
+  <ion-card>
+      <ion-card-content>
+        <canvas height="250" #grafico1></canvas>
+        <div (click)="presentAlert(info_font[0].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+      </ion-card-content>
+
+    </ion-card>
+</ion-card>
+
+<ion-card>
+<ion-card-content>
+  <ion-card-title>
+    Número de empregos formais nas OSCs por região, Brasil - 2014
+    </ion-card-title>
+</ion-card-content>
+<ion-card>
+  <ion-card-content>
+    <canvas height="250" #grafico2></canvas>
+    <div (click)="presentAlert(info_font[1].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+  </ion-card-content>
+  </ion-card>
+</ion-card>
+
+<ion-card>
+<ion-card-content>
+  <ion-card-title>
+    Distribuição de OSCs por área de atuação, Brasil - 2014
+    </ion-card-title>
+</ion-card-content>
+<ion-card>
+  <ion-card-content>
+    <canvas height="250" #grafico3></canvas>
+    <div (click)="presentAlert(info_font[2].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+  </ion-card-content>
+  </ion-card>
+</ion-card>
+
+<ion-card>
+<ion-card-content>
+  <ion-card-title>
+    Número de OSCs com parcerias com o Governo Federal por região, Brasil - 2014
+    </ion-card-title>
+</ion-card-content>
+<ion-card>
+  <ion-card-content>
+    <canvas height="250" #grafico4></canvas>
+    <div (click)="presentAlert(info_font[3].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+  </ion-card-content>
+  </ion-card>
+</ion-card>
+
+<ion-card>
+<ion-card-content>
+  <ion-card-title>
+    Evolução anual de OSCs com parcerias com o Governo Federal por instrumento de parceria, Brasil - 2009-2017
+    </ion-card-title>
+</ion-card-content>
+<ion-card>
+  <ion-card-content>
+    <canvas baseChart height="350" #grafico5></canvas>
+    <div (click)="presentAlert(info_font[4].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+  </ion-card-content>
+  </ion-card>
+</ion-card>
+
+<ion-card>
+<ion-card-content>
+  <ion-card-title>
+    Evolução anual dos repasses federais para OSCs por instrumento de parceria, Brasil - 2009-2017
+    </ion-card-title>
+</ion-card-content>
+<ion-card>
+  <ion-card-content>
+    <canvas baseChart height="350" #grafico6></canvas>
+    <div (click)="presentAlert(info_font[5].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+  </ion-card-content>
+  </ion-card>
+</ion-card>
+
+<ion-card>
+<ion-card-content>
+  <ion-card-title>
+    Evolução anual de OSCs com parcerias com o Governo Federal por tamanho da OSC, Brasil - 2009-2017
+    </ion-card-title>
+</ion-card-content>
+<ion-card>
+  <ion-card-content>
+    <canvas baseChart height="300" #grafico7></canvas>
+    <div (click)="presentAlert(info_font[6].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+  </ion-card-content>
+  </ion-card>
+</ion-card>
+
+<ion-card>
+<ion-card-content>
+  <ion-card-title>
+    Evolução anual do volume de repasses federais para OSCs por tamanho da OSC, Brasil - 2009-2017
+    </ion-card-title>
+</ion-card-content>
+<ion-card>
+  <ion-card-content>
+    <canvas baseChart height="300" #grafico8></canvas>
+    <div (click)="presentAlert(info_font[7].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+  </ion-card-content>
+  </ion-card>
+</ion-card>
+
+<ion-card>
+<ion-card-content>
+  <ion-card-title>
+    Distribuição de OSCs de assistência social por tipo de serviço prestado, Brasil - 2014
+    </ion-card-title>
+</ion-card-content>
+<ion-card>
+  <ion-card-content>
+    <canvas height="250" #grafico9></canvas>
+    <div (click)="presentAlert(info_font[8].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+  </ion-card-content>
+  </ion-card>
+</ion-card>
+
+<ion-card>
+<ion-card-content>
+  <ion-card-title>
+    Distribuição de OSCs de saúde por tipo de estabelecimento de saúde, Brasil - 2014
+    </ion-card-title>
+</ion-card-content>
+<ion-card>
+  <ion-card-content>
+    <canvas height="250" #grafico10></canvas>
+    <div (click)="presentAlert(info_font[9].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+  </ion-card-content>
+  </ion-card>
+</ion-card>
+
+<ion-card>
+<ion-card-content>
+  <ion-card-title>
+    Distribuição de OSCs de saúde por região e tipo de gestão, Brasil - 2014
+    </ion-card-title>
+</ion-card-content>
+<ion-card>
+    <ion-card-content>
+      <canvas height="250" #grafico11></canvas>
+      <div (click)="presentAlert(info_font[10].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+    </ion-card-content>
+  </ion-card>
+</ion-card>
+
+<ion-card>
+<ion-card-content>
+  <ion-card-title>
+    Distribuição de OSCs de economia solidária por região e tipo de vínculo com outras entidades, Brasil - 2014
+    </ion-card-title>
+</ion-card-content>
+<ion-card>
+    <ion-card-content>
+      <canvas height="250" #grafico12></canvas>
+      <div (click)="presentAlert(info_font[11].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+    </ion-card-content>
+  </ion-card>
+</ion-card>
+
+<ion-card>
+<ion-card-content>
+  <ion-card-title>
+    Distribuição de OSCs de economia solidária por região e abrangência da atuação, Brasil - 2014
+    </ion-card-title>
+</ion-card-content>
+<ion-card>
+    <ion-card-content>
+      <canvas height="250" #grafico13></canvas>
+      <div (click)="presentAlert(info_font[12].title)"><ion-icon id="info" name="information-circle"></ion-icon></div>
+    </ion-card-content>
+  </ion-card>
+</ion-card>
+
+</ion-content>

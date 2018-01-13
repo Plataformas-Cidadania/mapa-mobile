@@ -1,0 +1,1853 @@
+<ion-header>
+  <ion-navbar class="nav-home">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <div>
+      <img src="assets/img/simbolo.png" width="50px" height="50px" class="img-logo"/>
+      <ion-title class="title-app"> Mapa das Organizações da Sociedade Civil </ion-title>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding *ngIf="osc">
+
+  <div class="cabecalho">
+    <div *ngIf="(osc.cabecalho.im_logo != null && osc.cabecalho.im_logo !='')">
+      <img src="{{osc.cabecalho.im_logo}}" class="img-osc" />
+    </div>
+    <div *ngIf="(osc.cabecalho.im_logo == null || osc.cabecalho.im_logo =='')">
+      <img src="assets/img/camera.jpg" class="img-osc" />
+    </div>
+    <div class="div-cabecalho">
+      <span><strong>{{osc.cabecalho.tx_razao_social_osc}}</strong></span><br>
+      <span><strong>CNPJ: </strong>{{osc.cabecalho.cd_identificador_osc}}</span><br>
+      <span><strong>Natureza Jurídica: </strong>{{osc.cabecalho.tx_nome_natureza_juridica_osc}}</span>
+    </div>
+  </div>
+
+  <div>
+    <hr>
+    <h2 class="h2-tilte">{{itens[0].title}}</h2><br>
+    <div>
+      <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_nome_fantasia_osc)">
+        <span *ngIf="(osc.dados_gerais.ft_nome_fantasia_osc != 'Representante' && osc.dados_gerais.ft_nome_fantasia_osc != null)">
+          <img class="img-base-dados" src="assets/img/base_dados.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_nome_fantasia_osc == 'Representante')">
+          <img class="img-representante" src="assets/img/dado_representante.png">
+        </span>
+        <span class="span-margin" *ngIf="(osc.dados_gerais.ft_nome_fantasia_osc == null)" ></span>
+        <strong>Nome Fantasia: </strong><span>{{(osc.dados_gerais.tx_nome_fantasia_osc)?osc.dados_gerais.tx_nome_fantasia_osc:"Não informado"}}</span>
+      </div><br>
+      <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_sigla_osc)">
+        <span *ngIf="(osc.dados_gerais.ft_sigla_osc != 'Representante' && osc.dados_gerais.ft_sigla_osc != null)">
+          <img class="img-base-dados" src="assets/img/base_dados.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_sigla_osc == 'Representante')">
+          <img  class="img-representante" src="assets/img/dado_representante.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_sigla_osc == null)" class="span-margin"></span>
+        <strong>Sigla OSC: </strong><span>{{(osc.dados_gerais.tx_sigla_osc)?osc.dados_gerais.tx_sigla_osc:"Não informado"}}</span>
+      </div><br>
+      <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_endereco)">
+        <span *ngIf="(osc.dados_gerais.ft_endereco != 'Representante' && osc.dados_gerais.ft_endereco != null)">
+          <img class="img-base-dados" src="assets/img/base_dados.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_endereco == 'Representante')">
+          <img  class="img-representante" src="assets/img/dado_representante.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_endereco == null)" class="span-margin"></span>
+        <strong>Endereço da OSC: </strong><span>{{(osc.dados_gerais.tx_endereco)?osc.dados_gerais.tx_endereco:"Não informado"}}</span>
+      </div><br>
+      <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_situacao_imovel_osc)">
+        <span *ngIf="(osc.dados_gerais.ft_situacao_imovel_osc != 'Representante' && osc.dados_gerais.ft_situacao_imovel_osc != null)">
+          <img class="img-base-dados" src="assets/img/base_dados.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_situacao_imovel_osc == 'Representante')">
+          <img  class="img-representante" src="assets/img/dado_representante.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_situacao_imovel_osc == null)" class="span-margin"></span>
+        <strong>Situação do Imóvel: </strong><span>{{(osc.dados_gerais.tx_nome_situacao_imovel_osc)?osc.dados_gerais.tx_nome_situacao_imovel_osc:"Não informado"}}</span>
+      </div><br>
+      <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_nome_responsavel_legal)">
+        <span *ngIf="(osc.dados_gerais.ft_nome_responsavel_legal != 'Representante' && osc.dados_gerais.ft_nome_responsavel_legal != null)">
+          <img class="img-base-dados" src="assets/img/base_dados.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_nome_responsavel_legal == 'Representante')">
+          <img  class="img-representante" src="assets/img/dado_representante.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_nome_responsavel_legal == null)" class="span-margin"></span>
+        <strong>Responsável Legal: </strong><span>{{(osc.dados_gerais.tx_nome_responsavel_legal)?osc.dados_gerais.tx_nome_responsavel_legal:"Não informado"}}</span>
+      </div><br>
+      <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_ano_cadastro_cnpj)">
+        <span *ngIf="(osc.dados_gerais.ft_ano_cadastro_cnpj != 'Representante' && osc.dados_gerais.ft_ano_cadastro_cnpj != null)">
+          <img class="img-base-dados" src="assets/img/base_dados.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_ano_cadastro_cnpj == 'Representante')">
+          <img  class="img-representante" src="assets/img/dado_representante.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_ano_cadastro_cnpj == null)" class="span-margin"></span>
+        <strong>Ano de inscrição no Cadastro de CNPJ: </strong>
+        <span *ngIf="(osc.dados_gerais.dt_ano_cadastro_cnpj)">{{osc.dados_gerais.dt_ano_cadastro_cnpj | slice : -4}}</span>
+        <span *ngIf="(!osc.dados_gerais.dt_ano_cadastro_cnpj)">Não informado</span>
+      </div><br>
+      <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_fundacao_osc)">
+        <span *ngIf="(osc.dados_gerais.ft_fundacao_osc != 'Representante' && osc.dados_gerais.ft_fundacao_osc != null)">
+          <img class="img-base-dados" src="assets/img/base_dados.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_fundacao_osc == 'Representante')">
+          <img  class="img-representante" src="assets/img/dado_representante.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_fundacao_osc == null)" class="span-margin"></span>
+        <strong>Ano de Fundação: </strong>
+        <span *ngIf="(osc.dados_gerais.dt_fundacao_osc)">{{osc.dados_gerais.dt_fundacao_osc | slice: -4}}</span>
+        <span *ngIf="(!osc.dados_gerais.dt_fundacao_osc)">Não informado</span>
+      </div><br>
+      <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_email)">
+        <span *ngIf="(osc.dados_gerais.ft_email != 'Representante' && osc.dados_gerais.ft_email != null)">
+          <img class="img-base-dados" src="assets/img/base_dados.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_email == 'Representante')">
+          <img  class="img-representante" src="assets/img/dado_representante.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_email == null)" class="span-margin"></span>
+        <strong>E-mail: </strong><span>{{(osc.dados_gerais.tx_email)?osc.dados_gerais.tx_email:"Não informado"}}</span>
+      </div><br>
+      <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_resumo_osc)">
+        <span *ngIf="(osc.dados_gerais.ft_resumo_osc != 'Representante' && osc.dados_gerais.ft_resumo_osc != null)">
+          <img class="img-base-dados" src="assets/img/base_dados.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_resumo_osc == 'Representante')">
+          <img  class="img-representante" src="assets/img/dado_representante.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_resumo_osc == null)" class="span-margin"></span>
+        <strong>O que a OSC faz: </strong><span>{{(osc.dados_gerais.tx_resumo_osc)?osc.dados_gerais.tx_resumo_osc:"Não informado"}}</span>
+      </div><br>
+      <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_site)">
+        <span *ngIf="(osc.dados_gerais.ft_site != 'Representante' && osc.dados_gerais.ft_site != null)">
+          <img class="img-base-dados" src="assets/img/base_dados.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_site == 'Representante')">
+          <img  class="img-representante" src="assets/img/dado_representante.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_site == null)" class="span-margin"></span>
+        <strong>Site: </strong><span>{{(osc.dados_gerais.tx_site)?osc.dados_gerais.tx_site:"Não informado"}}</span>
+      </div><br>
+      <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_telefone)">
+        <span *ngIf="(osc.dados_gerais.ft_telefone != 'Representante' && osc.dados_gerais.ft_telefone != null)">
+          <img class="img-base-dados" src="assets/img/base_dados.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_telefone == 'Representante')">
+          <img  class="img-representante" src="assets/img/dado_representante.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_telefone == null)" class="span-margin"></span>
+        <strong>Telefone: </strong>
+        <span>{{osc.dados_gerais.tx_telefone | tel}}</span>
+      </div><br>
+    </div>
+  </div>
+
+  <div>
+    <hr>
+    <h2 class="h2-tilte">{{itens[1].title}}</h2><br>
+    <div>
+      <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_atividade_economica_osc)">
+        <span *ngIf="(osc.dados_gerais.ft_atividade_economica_osc != 'Representante' && osc.dados_gerais.ft_atividade_economica_osc != null)">
+          <img class="img-base-dados" src="assets/img/base_dados.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_atividade_economica_osc == 'Representante')">
+          <img  class="img-representante" src="assets/img/dado_representante.png">
+        </span>
+        <span *ngIf="(osc.dados_gerais.ft_atividade_economica_osc == null)" class="span-margin"></span>
+        <strong>Atividade Econômica: </strong><span>{{(osc.dados_gerais.tx_nome_atividade_economica_osc)?osc.dados_gerais.tx_nome_atividade_economica_osc:"Não informado"}}</span>
+      </div><br>
+      <div *ngIf="osc.area_atuacao">
+        <div *ngFor="let area of osc.area_atuacao.area_atuacao">
+          <div (click)="presentAlert('Fonte', area.ft_area_atuacao)" *ngIf="(area.tx_nome_area_atuacao == 'Outros')">
+            <span *ngIf="(area.ft_area_atuacao != 'Representante' && area.ft_area_atuacao != null)">
+              <img class="img-base-dados" src="assets/img/base_dados.png">
+            </span>
+            <span *ngIf="(area.ft_area_atuacao == 'Representante')">
+              <img  class="img-representante" src="assets/img/dado_representante.png">
+            </span>
+            <span *ngIf="(area.ft_area_atuacao == null)" class="span-margin"></span>
+            <strong>Macro Área:: </strong><span>{{(area.tx_nome_area_atuacao_outra)?area.tx_nome_area_atuacao+" - "+area.tx_nome_area_atuacao_outra:"Não informado"}}</span>
+          </div><br>
+          <div *ngIf="(area.tx_nome_area_atuacao != 'Outros')">
+            <div (click)="presentAlert('Fonte', area.ft_area_atuacao)">
+              <span *ngIf="(area.ft_area_atuacao != 'Representante' && area.ft_area_atuacao != null)">
+                <img class="img-base-dados" src="assets/img/base_dados.png">
+              </span>
+              <span *ngIf="(area.ft_area_atuacao == 'Representante')">
+                <img  class="img-representante" src="assets/img/dado_representante.png">
+              </span>
+              <span *ngIf="(area.ft_area_atuacao == null)" class="span-margin"></span>
+              <strong>Macro Área: </strong><span>{{(area.tx_nome_area_atuacao)?area.tx_nome_area_atuacao:"Não informado"}}</span>
+            </div><br>
+            <div *ngFor="let subarea of area.subarea_atuacao">
+              <div (click)="presentAlert('Fonte', subarea.ft_subarea_atuacao)">
+                <span *ngIf="(subarea.ft_subarea_atuacao != 'Representante' && subarea.ft_subarea_atuacao != null)">
+                  <img class="img-base-dados-sub" src="assets/img/base_dados.png">
+                </span>
+                <span *ngIf="(subarea.ft_subarea_atuacao == 'Representante')">
+                  <img  class="img-representante-sub" src="assets/img/dado_representante.png">
+                </span>
+                <span *ngIf="(subarea.ft_subarea_atuacao == null)" class="span-margin"></span>
+                <strong>Subárea: </strong><span>{{(subarea.tx_nome_subarea_atuacao)?subarea.tx_nome_subarea_atuacao:"Não informado"}}
+                  {{(subarea.tx_nome_subarea_atuacao_outra)?" - "+subarea.tx_nome_subarea_atuacao_outra:""}}</span>
+                </div><br>
+              </div>
+            </div>
+          </div><br>
+        </div>
+        <div *ngIf="osc.area_atuacao == null">
+          <div><span class="span-margin"></span><strong >Área(s) de atuação da OSC: </strong>Não informado</div><br>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <hr>
+      <h2 class="h2-tilte">{{itens[2].title}}</h2><br>
+      <div *ngIf="osc.descricao">
+        <div (click)="presentAlert('Fonte', osc.descricao.ft_historico)">
+          <span *ngIf="(osc.descricao.ft_historico != 'Representante' && osc.descricao.ft_historico != null)">
+            <img class="img-base-dados" src="assets/img/base_dados.png">
+          </span>
+          <span *ngIf="(osc.descricao.ft_historico == 'Representante')">
+            <img  class="img-representante" src="assets/img/dado_representante.png">
+          </span>
+          <span *ngIf="(osc.descricao.ft_historico == null)" class="span-margin"></span>
+          <strong>Como surgiu a OSC: </strong><span>{{(osc.descricao.tx_historico)?osc.descricao.tx_historico:"Não informado"}}</span>
+        </div><br>
+        <div (click)="presentAlert('Fonte', osc.descricao.ft_missao_osc)">
+          <span *ngIf="(osc.descricao.ft_missao_osc != 'Representante' && osc.descricao.ft_missao_osc != null)">
+            <img class="img-base-dados" src="assets/img/base_dados.png">
+          </span>
+          <span *ngIf="(osc.descricao.ft_missao_osc == 'Representante')">
+            <img  class="img-representante" src="assets/img/dado_representante.png">
+          </span>
+          <span *ngIf="(osc.descricao.ft_missao_osc == null)" class="span-margin"></span>
+          <strong>Missão da OSC: </strong><span>{{(osc.descricao.tx_missao_osc)?osc.descricao.tx_missao_osc:"Não informado"}}</span>
+        </div><br>
+        <div (click)="presentAlert('Fonte', osc.descricao.ft_visao_osc)">
+          <span *ngIf="(osc.descricao.ft_visao_osc != 'Representante' && osc.descricao.ft_visao_osc != null)">
+            <img class="img-base-dados" src="assets/img/base_dados.png">
+          </span>
+          <span *ngIf="(osc.descricao.ft_visao_osc == 'Representante')">
+            <img  class="img-representante" src="assets/img/dado_representante.png">
+          </span>
+          <span *ngIf="(osc.descricao.ft_visao_osc == null)" class="span-margin"></span>
+          <strong>Visão da OSC: </strong><span>{{(osc.descricao.tx_visao_osc)?osc.descricao.tx_visao_osc:"Não informado"}}</span>
+        </div><br>
+        <div (click)="presentAlert('Fonte', osc.descricao.ft_finalidades_estatutarias)">
+          <span *ngIf="(osc.descricao.ft_finalidades_estatutarias != 'Representante' && osc.descricao.ft_finalidades_estatutarias != null)">
+            <img class="img-base-dados" src="assets/img/base_dados.png">
+          </span>
+          <span *ngIf="(osc.descricao.ft_finalidades_estatutarias == 'Representante')">
+            <img  class="img-representante" src="assets/img/dado_representante.png">
+          </span>
+          <span *ngIf="(osc.descricao.ft_finalidades_estatutarias == null)" class="span-margin"></span>
+          <strong>Finalidades Estatutárias da OSC: </strong><span>{{(osc.descricao.tx_finalidades_estatutarias)?osc.descricao.tx_finalidades_estatutarias:"Não informado"}}</span>
+        </div><br>
+        <div (click)="presentAlert('Fonte', osc.descricao.ft_link_estatuto_osc)">
+          <span *ngIf="(osc.descricao.ft_link_estatuto_osc != 'Representante' && osc.descricao.ft_link_estatuto_osc != null)">
+            <img class="img-base-dados" src="assets/img/base_dados.png">
+          </span>
+          <span *ngIf="(osc.descricao.ft_link_estatuto_osc == 'Representante')">
+            <img  class="img-representante" src="assets/img/dado_representante.png">
+          </span>
+          <span *ngIf="(osc.descricao.ft_link_estatuto_osc == null)" class="span-margin"></span>
+          <strong>Link para o Estatuto da OSC: </strong><span>{{(osc.descricao.tx_link_estatuto_osc)?osc.descricao.tx_link_estatuto_osc:"Não informado"}}</span>
+        </div><br>
+      </div>
+      <div *ngIf="osc.descricao == null">
+        <div><span class="span-margin"></span><strong>Como surgiu a OSC: </strong><span>Não informado</span></div><br>
+        <div><span class="span-margin"></span><strong>Missão da OSC: </strong><span>Não informado</span></div><br>
+        <div><span class="span-margin"></span><strong>Visão da OSC: </strong><span>Não informado</span></div><br>
+        <div><span class="span-margin"></span><strong>Finalidades Estatutárias da OSC: </strong><span>Não informado</span></div><br>
+        <div><span class="span-margin"></span><strong>Link para o Estatuto da OSC: </strong><span>Não informado</span></div><br>
+      </div>
+    </div>
+
+    <div>
+      <hr>
+      <h2 class="h2-tilte">{{itens[3].title}}</h2><br>
+      <div>
+        <div *ngIf="osc.certificado">
+          <div *ngFor="let certificado of osc.certificado.certificado">
+            <div (click)="presentAlert('Fonte', certificado.ft_certificado)">
+              <span *ngIf="(certificado.ft_certificado != 'Representante' && certificado.ft_certificado != null)">
+                <img class="img-base-dados" src="assets/img/base_dados.png">
+              </span>
+              <span *ngIf="(certificado.ft_certificado == 'Representante')">
+                <img  class="img-representante" src="assets/img/dado_representante.png">
+              </span>
+              <span *ngIf="(certificado.ft_certificado == null)" class="span-margin"></span>
+              <span>{{(certificado.tx_nome_certificado)?certificado.tx_nome_certificado:"Não informado"}}</span>
+            </div><br>
+          </div>
+        </div><br>
+        <div *ngIf="osc.certificado == null">
+          <span class="span-margin"></span>
+          <span>Não possui Títulos ou Certificações</span>
+        </div><br>
+      </div>
+    </div>
+
+    <div>
+      <hr>
+      <h2 class="h2-tilte">{{itens[4].title}}</h2><br>
+      <div>
+        <div>
+          <div><span class="span-margin"></span><strong>Quadro de Dirigentes</strong></div>
+          <div *ngIf=" osc.relacoes_trabalho_governanca.governanca == null">
+            <span class="span-margin"></span>
+            <span>Não informado</span>
+          </div><br>
+          <div *ngFor="let governanca of osc.relacoes_trabalho_governanca.governanca">
+            <div (click)="presentAlert('Fonte', governanca.ft_cargo_dirigente)">
+              <span *ngIf="(governanca.ft_cargo_dirigente != 'Representante' && governanca.ft_cargo_dirigente != null)">
+                <img class="img-base-dados" src="assets/img/base_dados.png">
+              </span>
+              <span *ngIf="(governanca.ft_cargo_dirigente == 'Representante')">
+                <img  class="img-representante" src="assets/img/dado_representante.png">
+              </span>
+              <span *ngIf="(governanca.ft_cargo_dirigente == null)" class="span-margin"></span>
+              <strong>{{governanca.tx_cargo_dirigente}}: </strong>
+              <span>{{(governanca.tx_nome_dirigente)?governanca.tx_nome_dirigente:"Não informado"}}</span>
+            </div><br>
+          </div></div><br>
+          <div>
+            <div><span class="span-margin"></span><strong>Conselho Fiscal</strong></div>
+            <div *ngIf=" osc.relacoes_trabalho_governanca.conselho_fiscal == null">
+              <span class="span-margin"></span>
+              <span>Não informado</span>
+            </div><br>
+            <div *ngFor="let conselho_fiscal of osc.relacoes_trabalho_governanca.conselho_fiscal">
+              <div (click)="presentAlert('Fonte', conselho_fiscal.ft_nome_conselheiro)">
+                <span *ngIf="(conselho_fiscal.ft_nome_conselheiro != 'Representante' && conselho_fiscal.ft_nome_conselheiro != null)">
+                  <img class="img-base-dados" src="assets/img/base_dados.png">
+                </span>
+                <span *ngIf="(conselho_fiscal.ft_nome_conselheiro == 'Representante')">
+                  <img  class="img-representante" src="assets/img/dado_representante.png">
+                </span>
+                <span *ngIf="(conselho_fiscal.ft_nome_conselheiro == null)" class="span-margin"></span>
+                <span>{{(conselho_fiscal.tx_nome_conselheiro)?conselho_fiscal.tx_nome_conselheiro:"Não informado"}}</span>
+              </div><br>
+            </div>
+          </div><br>
+          <div>
+            <div><span class="span-margin"></span><strong>Trabalhadores</strong></div><br>
+            <div (click)="presentAlert('Fonte', osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores)">
+              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores != 'Representante' && osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores != null)">
+                <img class="img-base-dados" src="assets/img/base_dados.png">
+              </span>
+              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores == 'Representante')">
+                <img  class="img-representante" src="assets/img/dado_representante.png">
+              </span>
+              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores == null)" class="span-margin"></span>
+              <strong>Total de Trabalhadores:</strong>
+              <span>{{(osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores != null)?osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores:"Não informado"}}</span><br>
+            </div><br>
+            <div (click)="presentAlert('Fonte', osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo)">
+              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo != 'Representante' && osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo != null)">
+                <img class="img-base-dados" src="assets/img/base_dados.png">
+              </span>
+              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo == 'Representante')">
+                <img  class="img-representante" src="assets/img/dado_representante.png">
+              </span>
+              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo == null)" class="span-margin"></span>
+              <strong>Empregados:</strong>
+              <span>{{(osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_vinculo != null)?osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_vinculo:"Não informado"}}</span><br>
+            </div><br>
+            <div (click)="presentAlert('Fonte', osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia)">
+              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia != 'Representante' && osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia != null)">
+                <img class="img-base-dados" src="assets/img/base_dados.png">
+              </span>
+              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia == 'Representante')">
+                <img  class="img-representante" src="assets/img/dado_representante.png">
+              </span>
+              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia == null)" class="span-margin"></span>
+              <strong>Trabalhadores com deficiência:</strong>
+              <span>{{(osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_deficiencia != null)?osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_deficiencia:"Não informado"}}</span><br>
+            </div><br>
+            <div (click)="presentAlert('Fonte', osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios)">
+              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios != 'Representante' && osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios != null)">
+                <img class="img-base-dados" src="assets/img/base_dados.png">
+              </span>
+              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios == 'Representante')">
+                <img  class="img-representante" src="assets/img/dado_representante.png">
+              </span>
+              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios == null)" class="span-margin"></span>
+              <strong>Trabalhadores voluntários:</strong>
+              <span>{{(osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_voluntarios)?osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_voluntarios:"Não informado"}}</span><br>
+            </div><br>
+          </div><br>
+        </div>
+      </div>
+
+      <div>
+        <hr>
+        <h2 class="h2-tilte">{{itens[5].title}}</h2><br>
+        <div>
+          <div>
+            <div><span class="span-margin"></span><strong>Conselhos de Políticas Públicas</strong></div>
+            <div *ngFor="let conselho of osc.participacao_social.conselho">
+              <div><br>
+                <div (click)="presentAlert('Fonte', conselho.conselho.ft_conselho)">
+                  <span *ngIf="(conselho.conselho.ft_conselho != 'Representante' && conselho.conselho.ft_conselho != null)">
+                    <img class="img-base-dados" src="assets/img/base_dados.png">
+                  </span>
+                  <span *ngIf="(conselho.conselho.ft_conselho == 'Representante')">
+                    <img  class="img-representante" src="assets/img/dado_representante.png">
+                  </span>
+                  <span *ngIf="(conselho.conselho.ft_conselho == null)" class="span-margin"></span>
+                  <strong>Nome do Conselho: </strong>
+                  <span>{{(conselho.conselho.tx_nome_conselho)?conselho.conselho.tx_nome_conselho:"Não informado"}}</span>
+                </div><br>
+                <div (click)="presentAlert('Fonte', conselho.conselho.ft_tipo_participacao)">
+                  <span *ngIf="(conselho.conselho.ft_tipo_participacao != 'Representante' && conselho.conselho.ft_tipo_participacao != null)">
+                    <img class="img-base-dados" src="assets/img/base_dados.png">
+                  </span>
+                  <span *ngIf="(conselho.conselho.ft_tipo_participacao == 'Representante')">
+                    <img  class="img-representante" src="assets/img/dado_representante.png">
+                  </span>
+                  <span *ngIf="(conselho.conselho.ft_tipo_participacao == null)" class="span-margin"></span>
+                  <strong>Titularidade: </strong>
+                  <span>{{(conselho.conselho.tx_nome_tipo_participacao)?conselho.conselho.tx_nome_tipo_participacao:"Não informado"}}</span>
+                </div><br>
+                <div *ngIf="conselho.representante">
+                  <div><span class="span-margin"></span><strong>Nome de representante: </strong></div>
+                  <div *ngFor="let representante of conselho.representante">
+                    <div (click)="presentAlert('Fonte', representante.ft_nome_representante_conselho)">
+                      <span *ngIf="(representante.ft_nome_representante_conselho != 'Representante' && representante.ft_nome_representante_conselho != null)">
+                        <img class="img-base-dados" src="assets/img/base_dados.png">
+                      </span>
+                      <span *ngIf="(representante.ft_nome_representante_conselho == 'Representante')">
+                        <img  class="img-representante" src="assets/img/dado_representante.png">
+                      </span>
+                      <span *ngIf="(representante.ft_nome_representante_conselho == null)" class="span-margin"></span>
+                      <span>{{(representante.tx_nome_representante_conselho)?representante.tx_nome_representante_conselho:"Não informado"}}</span>
+                    </div><br>
+                  </div>
+                </div>
+                <div *ngIf="conselho.representante == null">
+                  <div><span class="span-margin"></span><strong>Nome de representante: </strong><span>Não informado</span></div>
+                </div><br>
+                <div (click)="presentAlert('Fonte', conselho.conselho.ft_periodicidade_reuniao)">
+                  <span *ngIf="(conselho.conselho.ft_periodicidade_reuniao != 'Representante' && conselho.conselho.ft_periodicidade_reuniao != null)">
+                    <img class="img-base-dados" src="assets/img/base_dados.png">
+                  </span>
+                  <span *ngIf="(conselho.conselho.ft_periodicidade_reuniao == 'Representante')">
+                    <img  class="img-representante" src="assets/img/dado_representante.png">
+                  </span>
+                  <span *ngIf="(conselho.conselho.ft_periodicidade_reuniao == null)" class="span-margin"></span>
+                  <strong>Periodicidade da Reunião: </strong>
+                  <span>{{(conselho.conselho.tx_nome_periodicidade_reuniao_conselho)?conselho.conselho.tx_nome_periodicidade_reuniao_conselho:"Não informado"}}</span>
+                </div><br>
+                <div (click)="presentAlert('Fonte', conselho.conselho.ft_data_inicio_conselho)">
+                  <span *ngIf="(conselho.conselho.ft_data_inicio_conselho != 'Representante' && conselho.conselho.ft_data_inicio_conselho != null)">
+                    <img class="img-base-dados" src="assets/img/base_dados.png">
+                  </span>
+                  <span *ngIf="(conselho.conselho.ft_data_inicio_conselho == 'Representante')">
+                    <img  class="img-representante" src="assets/img/dado_representante.png">
+                  </span>
+                  <span *ngIf="(conselho.conselho.ft_data_inicio_conselho == null)" class="span-margin"></span>
+                  <strong>Data de início de vigência: </strong>
+                  <span>{{(conselho.conselho.dt_data_inicio_conselho)?conselho.conselho.dt_data_inicio_conselho:"Não informado"}}</span>
+                </div><br>
+                <div (click)="presentAlert('Fonte', conselho.conselho.ft_data_fim_conselho)">
+                  <span *ngIf="(conselho.conselho.ft_data_fim_conselho != 'Representante' && conselho.conselho.ft_data_fim_conselho != null)">
+                    <img class="img-base-dados" src="assets/img/base_dados.png">
+                  </span>
+                  <span *ngIf="(conselho.conselho.ft_data_fim_conselho == 'Representante')">
+                    <img  class="img-representante" src="assets/img/dado_representante.png">
+                  </span>
+                  <span *ngIf="(conselho.conselho.ft_data_fim_conselho == null)" class="span-margin"></span>
+                  <strong>Data de fim de vigência: </strong>
+                  <span>{{(conselho.conselho.dt_data_fim_conselho)?conselho.conselho.dt_data_fim_conselho:"Não informado"}}</span>
+                </div><br>
+              </div>
+            </div>
+            <div *ngIf="osc.participacao_social.conselho == null || osc.participacao_social.conselho ==''">
+              <span class="span-margin"></span><span>Não informado</span>
+            </div><br>
+          </div>
+          <div>
+            <div><span class="span-margin"></span><strong>Conferências de Políticas Públicas</strong></div>
+            <div *ngFor="let conferencia of osc.participacao_social.conferencia">
+              <div><br>
+                <div (click)="presentAlert('Fonte', conferencia.ft_ano_realizacao)">
+                  <span *ngIf="(conferencia.ft_ano_realizacao != 'Representante' && conferencia.ft_ano_realizacao != null)">
+                    <img class="img-base-dados" src="assets/img/base_dados.png">
+                  </span>
+                  <span *ngIf="(conferencia.ft_ano_realizacao == 'Representante')">
+                    <img  class="img-representante" src="assets/img/dado_representante.png">
+                  </span>
+                  <span *ngIf="(conferencia.ft_ano_realizacao == null)" class="span-margin"></span>
+                  <strong>Ano de realização da conferência: </strong>
+                  <span *ngIf="(conferencia.dt_ano_realizacao)">{{conferencia.dt_ano_realizacao | slice: -4}}</span>
+                  <span *ngIf="(!conferencia.dt_ano_realizacao)">Não informado</span>
+                </div><br>
+                <div (click)="presentAlert('Fonte', conferencia.ft_conferencia)">
+                  <span *ngIf="(conferencia.ft_conferencia != 'Representante' && conferencia.ft_conferencia != null)">
+                    <img class="img-base-dados" src="assets/img/base_dados.png">
+                  </span>
+                  <span *ngIf="(conferencia.ft_conferencia == 'Representante')">
+                    <img  class="img-representante" src="assets/img/dado_representante.png">
+                  </span>
+                  <span *ngIf="(conferencia.ft_conferencia == null)" class="span-margin"></span>
+                  <strong>Nome da Conferência: </strong>
+                  <span>{{(conferencia.tx_nome_conferencia)?conferencia.tx_nome_conferencia:"Não informado"}}</span>
+                </div><br>
+                <div (click)="presentAlert('Fonte', conferencia.ft_forma_participacao_conferencia)">
+                  <span *ngIf="(conferencia.ft_forma_participacao_conferencia != 'Representante' && conferencia.ft_forma_participacao_conferencia != null)">
+                    <img class="img-base-dados" src="assets/img/base_dados.png">
+                  </span>
+                  <span *ngIf="(conferencia.ft_forma_participacao_conferencia == 'Representante')">
+                    <img  class="img-representante" src="assets/img/dado_representante.png">
+                  </span>
+                  <span *ngIf="(conferencia.ft_forma_participacao_conferencia == null)" class="span-margin"></span>
+                  <strong>Forma de participação na conferência: </strong>
+                  <span>{{(conferencia.tx_nome_forma_participacao_conferencia)?conferencia.tx_nome_forma_participacao_conferencia:"Não informado"}}</span>
+                </div><br>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="osc.participacao_social.conferencia == null || osc.participacao_social.conferencia ==''">
+            <span class="span-margin"></span><span>Não informado</span>
+          </div><br>
+          <div>
+            <div><span class="span-margin"></span><strong>Outros espaços de participação social</strong></div><br>
+            <div ><span class="span-margin"></span><strong>Atuação em Fóruns, Articulações, Coletivos e Redes de OSCs: </strong></div>
+            <div *ngFor="let outra of osc.participacao_social.outra">
+              <br><div (click)="presentAlert('Fonte', outra.ft_participacao_social_outra)">
+                <span *ngIf="(outra.ft_participacao_social_outra != 'Representante' && outra.ft_participacao_social_outra != null)">
+                  <img class="img-base-dados" src="assets/img/base_dados.png">
+                </span>
+                <span *ngIf="(outra.ft_participacao_social_outra == 'Representante')">
+                  <img  class="img-representante" src="assets/img/dado_representante.png">
+                </span>
+                <span *ngIf="(outra.ft_participacao_social_outra == null)" class="span-margin"></span>
+                <span>{{(outra.tx_nome_participacao_social_outra)?outra.tx_nome_participacao_social_outra:"Não informado"}}</span><br>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="osc.participacao_social.outra == null || osc.participacao_social.outra ==''">
+            <span class="span-margin"></span><span>Não informado</span>
+          </div><br>
+        </div>
+      </div>
+
+      <div>
+        <hr>
+        <h2 class="h2-tilte">{{itens[6].title}}</h2><br>
+        <div *ngIf="osc.projeto">
+          <div *ngFor="let proj of osc.projeto.projeto; let i = index" [attr.data-index]="i">
+            <ion-card class="ion-card" *ngIf="osc.projeto">
+              <ion-card-title class="margin-title" (click)="expandItem(item_projetos[i])">
+                <ion-icon [name]="item_projetos[i].expanded ? 'remove' :'add'"></ion-icon>
+                {{(item_projetos[i].title)?item_projetos[i].title:"Nome do Projeto não informado"}}
+              </ion-card-title>
+              <expandable [expanded]="item_projetos[i].expanded" >
+                <ion-card-content>
+                  <div (click)="presentAlert('Fonte', proj.ft_descricao_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(proj.ft_descricao_projeto != 'Representante' && proj.ft_descricao_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(proj.ft_descricao_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><strong>Descrição do Projeto, atividade e/ou programa: </strong>
+                            <span>{{(proj.tx_descricao_projeto)?proj.tx_descricao_projeto:"Não informado"}}</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div (click)="presentAlert('Fonte', proj.ft_status_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(proj.ft_status_projeto != 'Representante' && proj.ft_status_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(proj.ft_status_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3"><strong>Situação do Projeto: </strong>
+                            <span>{{(proj.tx_nome_status_projeto)?proj.tx_nome_status_projeto:"Não informado"}}</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div (click)="presentAlert('Fonte', proj.ft_data_inicio_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(proj.ft_data_inicio_projeto != 'Representante' && proj.ft_data_inicio_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(proj.ft_data_inicio_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3"><strong>Ano de início: </strong>
+                            <span *ngIf="(proj.dt_data_inicio_projeto)">{{proj.dt_data_inicio_projeto   | slice : -4}}</span>
+                            <span *ngIf="(!proj.dt_data_inicio_projeto)">Não informado</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div (click)="presentAlert('Fonte', proj.ft_data_fim_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(proj.ft_data_fim_projeto != 'Representante' && proj.ft_data_fim_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(proj.ft_data_fim_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3"><strong>Ano de conclusão: </strong>
+                            <span *ngIf="(proj.dt_data_fim_projeto)" >{{proj.dt_data_fim_projeto  | slice : -4}}</span>
+                            <span *ngIf="(!proj.dt_data_fim_projeto)" >Não informado</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-7><div>
+                          <strong (click)="presentAlert('Fonte', proj.ft_link_projeto)">
+                            <ion-col col-1><div>
+                              <span *ngIf="(proj.ft_link_projeto != 'Representante' && proj.ft_link_projeto != null)">
+                                <img class="img-base-dados" src="assets/img/base_dados.png">
+                              </span>
+                              <span *ngIf="(proj.ft_link_projeto == 'Representante')">
+                                <img  class="img-representante" src="assets/img/dado_representante.png">
+                              </span>
+                            </div></ion-col>
+                            <span *ngIf="(proj.ft_link_projeto == null)" class="span-margin"></span>
+                            <strong>Link para o projeto: </strong>
+                          </strong>
+                        </div></ion-col>
+                        <div class="margin-3"><span *ngIf="proj.tx_link_projeto"><a href="http://{{proj.tx_link_projeto}}">{{(proj.tx_link_projeto)?proj.tx_link_projeto:"Não informado"}}</a></span>
+                            <span *ngIf="proj.tx_link_projeto == null">Não informado</span>
+                        </div>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div (click)="presentAlert('Fonte', proj.ft_total_beneficiarios)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(proj.ft_total_beneficiarios != 'Representante' && proj.ft_total_beneficiarios != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(proj.ft_total_beneficiarios == 'Representante')">
+                            <img class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3"><strong>Total de Beneficiários: </strong>
+                            <span>{{(proj.nr_total_beneficiarios != null)?proj.nr_total_beneficiarios:"Não informado"}}</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div (click)="presentAlert('Fonte', proj.ft_valor_total_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(proj.ft_valor_total_projeto != 'Representante' && proj.ft_valor_total_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(proj.ft_valor_total_projeto == 'Representante')">
+                            <img class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" *ngIf="proj.nr_valor_total_projeto == null"><strong>Valor Total: </strong><span>Não informado</span></div>
+                          <div class="margin-3" *ngIf="proj.nr_valor_total_projeto != null"><strong>Valor Total: </strong><span>{{proj.nr_valor_total_projeto | currency:'BRL':true:'2.2-4'}}</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div (click)="presentAlert('Fonte', proj.ft_valor_captado_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(proj.ft_valor_captado_projeto != 'Representante' && proj.ft_valor_captado_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(proj.ft_valor_captado_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" *ngIf="proj.nr_valor_captado_projeto == null"><strong>Valor Recebido: </strong><span>Não informado</span></div>
+                          <div class="margin-3" *ngIf="proj.nr_valor_captado_projeto != null"><strong>Valor Recebido: </strong><span>{{proj.nr_valor_captado_projeto | currency:'BRL':true:'2.2-4'}}</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div></div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><strong>Tipo da Fontes de Recursos: </strong>
+                            <span *ngIf="proj.fonte_recursos == null || proj.fonte_recursos ==''">Não informado</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div>
+                  <div *ngFor="let fonte_recursos of proj.fonte_recursos" (click)="presentAlert('Fonte', fonte_recursos.ft_fonte_recursos_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(fonte_recursos.ft_fonte_recursos_projeto != 'Representante' && fonte_recursos.ft_fonte_recursos_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(fonte_recursos.ft_fonte_recursos_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><span>{{(fonte_recursos.tx_nome_origem_fonte_recursos_projeto)?fonte_recursos.tx_nome_origem_fonte_recursos_projeto:"Não informado"}}</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div (click)="presentAlert('Fonte', proj.ft_abrangencia_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(proj.ft_abrangencia_projeto != 'Representante' && proj.ft_abrangencia_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(proj.ft_abrangencia_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><strong>Abrangência de atuação: </strong>
+                            <span>{{(proj.tx_nome_abrangencia_projeto)?proj.tx_nome_abrangencia_projeto:"Não informado"}}</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div (click)="presentAlert('Fonte', proj.ft_zona_atuacao_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(proj.ft_zona_atuacao_projeto != 'Representante' && proj.ft_zona_atuacao_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(proj.ft_zona_atuacao_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><strong>Zona de Atuação: </strong>
+                            <span>{{(proj.tx_nome_zona_atuacao)?proj.tx_nome_zona_atuacao:"Não informado"}}</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div></div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><strong>Localização do Projeto: </strong>
+                            <span *ngIf="proj.localizacao == null || proj.localizacao ==''">Não informado</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div>
+                  <div *ngFor="let localizacao of proj.localizacao" (click)="presentAlert('Fonte', localizacao.ft_nome_regiao_localizacao_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(localizacao.ft_nome_regiao_localizacao_projeto != 'Representante' && localizacao.ft_nome_regiao_localizacao_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(localizacao.ft_nome_regiao_localizacao_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" >
+                            <span>{{(localizacao.tx_nome_regiao_localizacao_projeto)?localizacao.tx_nome_regiao_localizacao_projeto:"Não informado"}}</span>
+                          </div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div></div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><strong>Público Beneficiado: </strong>
+                            <span *ngIf="proj.publico_beneficiado == null || proj.publico_beneficiado ==''">Não informado</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div>
+                  <div *ngFor="let pub_ben of proj.publico_beneficiado" (click)="presentAlert('Fonte', pub_ben.ft_publico_beneficiado_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(pub_ben.ft_publico_beneficiado_projeto != 'Representante' && pub_ben.ft_publico_beneficiado_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(pub_ben.ft_publico_beneficiado_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" >
+                            <span>{{(pub_ben.tx_nome_publico_beneficiado)?pub_ben.tx_nome_publico_beneficiado:"Não informado"}}</span>
+                          </div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div></div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><strong>OSCs Parceiras: </strong>
+                            <span *ngIf="proj.osc_parceira == null || proj.osc_parceira ==''">Não informado</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div>
+                  <div *ngFor="let osc_parceira of proj.osc_parceira" (click)="presentAlert('Fonte', osc_parceira.ft_osc_parceira_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(osc_parceira.ft_osc_parceira_projeto != 'Representante' && osc_parceira.ft_osc_parceira_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(osc_parceira.ft_osc_parceira_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" >
+                            <span>{{(osc_parceira.tx_nome_osc_parceira_projeto)?osc_parceira.tx_nome_osc_parceira_projeto:"Não informado"}}</span>
+                          </div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div></div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><strong>Área de atuação do projeto, atividade ou programa: </strong>
+                            <span *ngIf="proj.area_atuacao == null || proj.area_atuacao ==''">Não informado</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div>
+                  <div *ngFor="let area_atuacao of proj.area_atuacao" (click)="presentAlert('Fonte', area_atuacao.ft_area_atuacao_outra_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(area_atuacao.ft_area_atuacao_outra_projeto != 'Representante' && area_atuacao.ft_area_atuacao_outra_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(area_atuacao.ft_area_atuacao_outra_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" >
+                            <span>{{(area_atuacao.tx_nome_area_atuacao_projeto)?area_atuacao.tx_nome_area_atuacao_projeto:"Não informado"}}</span>
+                            <span *ngFor="let area_atuacao_outra of proj.area_atuacao_outra">{{(area_atuacao_outra.tx_nome_area_atuacao_outra_projeto)?area_atuacao_outra.tx_nome_area_atuacao_outra_projeto:"Não informado"}}</span><br>
+                          </div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div></div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><strong>Financiadores do Projeto: </strong>
+                            <span *ngIf="proj.financiador_projeto == null || proj.financiador_projeto ==''">Não informado</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div>
+                  <div *ngFor="let financiador of proj.financiador_projeto" (click)="presentAlert('Fonte', financiador.ft_nome_financiador)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(financiador.ft_nome_financiador != 'Representante' && financiador.ft_nome_financiador != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(financiador.ft_nome_financiador == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" >
+                            <span>{{(financiador.tx_nome_financiador)?financiador.tx_nome_financiador:"Não informado"}}</span>
+                          </div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div (click)="presentAlert('Fonte', proj.ft_metodologia_monitoramento)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(proj.ft_metodologia_monitoramento != 'Representante' && proj.ft_metodologia_monitoramento != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(proj.ft_metodologia_monitoramento == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><strong>Metodologia de Monitoramento e Avaliação do Projeto, atividade e/ou programa: </strong>
+                            <span>{{(proj.tx_metodologia_monitoramento)?proj.tx_metodologia_monitoramento:"Não informado"}}</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div></div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><strong>Objetivos do Desenvolvimento Sustentável: </strong>
+                            <span *ngIf="proj.objetivo_meta == null || proj.objetivo_meta ==''">Não informado</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div>
+                  <div *ngFor="let objetivo of proj.objetivo_meta  | unique: 'cd_objetivo_projeto'" (click)="presentAlert('Fonte', objetivo.ft_objetivo_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(objetivo.ft_objetivo_projeto != 'Representante' && objetivo.ft_objetivo_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(objetivo.ft_objetivo_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span>
+                        </div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" >
+                            <span >{{(objetivo.tx_nome_objetivo_projeto)?objetivo.tx_nome_objetivo_projeto:"Não informado"}}</span>
+                          </div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div><br>
+                  <div>
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div></div></ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" ><strong>Metas Relacionadas ao ODS: </strong>
+                            <span *ngIf="proj.objetivo_meta == null || proj.objetivo_meta ==''">Não informado</span></div>
+                        </div></ion-col>
+                      </ion-row>
+                    </ion-grid>
+                  </div>
+                  <div *ngFor="let objetivo_meta of proj.objetivo_meta" (click)="presentAlert('Fonte', objetivo_meta.ft_objetivo_projeto)">
+                    <ion-grid>
+                      <ion-row>
+                        <ion-col col-1><div>
+                          <span *ngIf="(objetivo_meta.ft_objetivo_projeto != 'Representante' && objetivo_meta.ft_objetivo_projeto != null)">
+                            <img class="img-base-dados" src="assets/img/base_dados.png">
+                          </span>
+                          <span *ngIf="(objetivo_meta.ft_objetivo_projeto == 'Representante')">
+                            <img  class="img-representante" src="assets/img/dado_representante.png">
+                          </span></div>
+                        </ion-col>
+                        <ion-col col-11><div>
+                          <div class="margin-3" >
+                            <span>{{(objetivo_meta.tx_nome_meta_projeto)?objetivo_meta.tx_nome_meta_projeto:"Não informado"}}</span>
+                          </div>
+                        </div></ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </div><br>
+              </ion-card-content>
+            </expandable>
+          </ion-card>
+        </div>
+      </div>
+      <div class="margin-10" *ngIf="osc.projeto == null">
+        <span class="span-margin"></span><span>Não informado</span>
+      </div><br>
+      <h2 class="h2-tilte-total-rec">Total de recursos com projetos, atividades e/ou programas</h2>
+      <div *ngIf="osc.projeto">
+        <div *ngIf="osc.projeto.recursos">
+          <div>
+            <div class="margin-10" *ngIf="osc.projeto.recursos.nr_valor_total == null"><span>Não informado</span></div>
+            <div class="margin-10" *ngIf="osc.projeto.recursos.nr_valor_total != null"><span>{{osc.projeto.recursos.nr_valor_total | currency:'BRL':true:'2.2-4'}}</span></div>
+          </div><br>
+        </div>
+      </div>
+      <div class="margin-10" *ngIf="osc.projeto == null">
+        <div class="span-margin"><span>Não informado</span></div><br>
+      </div>
+    </div>
+
+    <div>
+      <hr>
+      <h2 class="h2-tilte">{{itens[7].title}}</h2><br>
+      <div *ngFor="let rec of osc.recursos.recursos; let j = index" [attr.data-index]="j">
+        <ion-card class="ion-card" *ngIf="osc.recursos">
+          <ion-card-title class="margin-title" (click)="expandItem(item_recursos[j])">
+            <ion-icon [name]="item_recursos[j].expanded ? 'remove' :'add'"></ion-icon>
+            Ano {{item_recursos[j].title}}
+          </ion-card-title>
+          <expandable [expanded]="item_recursos[j].expanded" >
+            <ion-card-content>
+              <h2 class="h2-tilte-rec">Recursos próprios</h2>
+              <div *ngIf="rec.recursos_proprios != null">
+                <div>
+                  <div *ngIf="rec.recursos_proprios.rendimentos_fundos_patrimoniais">
+                    <div (click)="presentAlert('Info', info_rec_prop[0].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_proprios.rendimentos_fundos_patrimoniais.nr_valor_recursos_osc == null"><strong>Rendimentos de fundos patrimoniais: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_proprios.rendimentos_fundos_patrimoniais.nr_valor_recursos_osc != null"><strong>Rendimentos de fundos patrimoniais: </strong><span>{{rec.recursos_proprios.rendimentos_fundos_patrimoniais.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.rendimentos_fundos_patrimoniais == null">
+                    <div (click)="presentAlert('Info', info_rec_prop[0].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Rendimentos de fundos patrimoniais: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.rendimentos_financeiros_reservas_contas_correntes_proprias">
+                    <div (click)="presentAlert('Info', info_rec_prop[1].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_proprios.rendimentos_financeiros_reservas_contas_correntes_proprias.nr_valor_recursos_osc == null"><strong>Rendimentos financeiros de reservas ou contas correntes próprias: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_proprios.rendimentos_financeiros_reservas_contas_correntes_proprias.nr_valor_recursos_osc != null"><strong>Rendimentos financeiros de reservas ou contas correntes próprias: </strong><span>{{rec.recursos_proprios.rendimentos_financeiros_reservas_contas_correntes_proprias.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.rendimentos_financeiros_reservas_contas_correntes_proprias == null">
+                    <div (click)="presentAlert('Info', info_rec_prop[1].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Rendimentos financeiros de reservas ou contas correntes próprias: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.mensalidades_contribuicoes_associados">
+                    <div (click)="presentAlert('Info', info_rec_prop[2].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_proprios.mensalidades_contribuicoes_associados.nr_valor_recursos_osc == null"><strong>Mensalidades ou contribuições de associados: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_proprios.mensalidades_contribuicoes_associados.nr_valor_recursos_osc != null"><strong>Mensalidades ou contribuições de associados: </strong><span>{{rec.recursos_proprios.mensalidades_contribuicoes_associados.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.mensalidades_contribuicoes_associados == null">
+                    <div (click)="presentAlert('Info', info_rec_prop[2].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Mensalidades ou contribuições de associados: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.premios_recebidos">
+                    <div (click)="presentAlert('Info', info_rec_prop[3].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_proprios.premios_recebidos.nr_valor_recursos_osc == null"><strong>Prêmios recebidos: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_proprios.premios_recebidos.nr_valor_recursos_osc != null"><strong>Prêmios recebidos: </strong><span>{{rec.recursos_proprios.premios_recebidos.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.premios_recebidos == null">
+                    <div (click)="presentAlert('Info', info_rec_prop[3].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Prêmios recebidos: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.venda_produtos">
+                    <div (click)="presentAlert('Info', info_rec_prop[4].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_proprios.venda_produtos.nr_valor_recursos_osc == null"><strong>Venda de produtos: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_proprios.venda_produtos.nr_valor_recursos_osc != null"><strong>Venda de produtos: </strong><span>{{rec.recursos_proprios.venda_produtos.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.venda_produtos == null">
+                    <div (click)="presentAlert('Info', info_rec_prop[4].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Venda de produtos: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.prestacao_servicos">
+                    <div (click)="presentAlert('Info', info_rec_prop[5].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_proprios.prestacao_servicos.nr_valor_recursos_osc == null"><strong>Prestação de serviços: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_proprios.prestacao_servicos.nr_valor_recursos_osc != null"><strong>Prestação de serviços: </strong><span>{{rec.recursos_proprios.prestacao_servicos.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.prestacao_servicos == null">
+                    <div (click)="presentAlert('Info', info_rec_prop[5].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Prestação de serviços: </strong><span>Não informado</span></div><br>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.venda_bens_direitos">
+                    <div (click)="presentAlert('Info', info_rec_prop[6].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_proprios.venda_bens_direitos.nr_valor_recursos_osc == null"><strong>Venda de bens e direitos: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_proprios.venda_bens_direitos.nr_valor_recursos_osc != null"><strong>Venda de bens e direitos: </strong><span>{{rec.recursos_proprios.venda_bens_direitos.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_proprios.venda_bens_direitos == null">
+                    <div (click)="presentAlert('Info', info_rec_prop[6].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Venda de bens e direitos: </strong><span>Não informado</span></div><br>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="rec.recursos_proprios == null">
+                <div><span >Não informado</span></div>
+              </div>
+              <h2 class="h2-tilte-rec">Recursos públicos</h2>
+              <div *ngIf="rec.recursos_publicos != null">
+                <div>
+                  <div *ngIf="rec.recursos_publicos.parceria_governo_federal">
+                    <div (click)="presentAlert('Info', info_rec_pub[0].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_publicos.parceria_governo_federal.nr_valor_recursos_osc == null"><strong>Parceria com o governo federal: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_publicos.parceria_governo_federal.nr_valor_recursos_osc != null"><strong>Parceria com o governo federal: </strong><span>{{rec.recursos_publicos.parceria_governo_federal.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_publicos.parceria_governo_federal == null">
+                    <div (click)="presentAlert('Info', info_rec_pub[0].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Parceria com o governo federal: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_publicos.parceria_governo_estadual">
+                    <div (click)="presentAlert('Info', info_rec_pub[1].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_publicos.parceria_governo_estadual.nr_valor_recursos_osc == ''"><strong>Parceria com o governo estadual: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_publicos.parceria_governo_estadual.nr_valor_recursos_osc != ''"><strong>Parceria com o governo estadual: </strong><span>{{rec.recursos_publicos.parceria_governo_estadual.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_publicos.parceria_governo_estadual == null">
+                    <div (click)="presentAlert('Info', info_rec_pub[1].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Parceria com o governo estadual: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_publicos.parceria_governo_municipal">
+                    <div (click)="presentAlert('Info', info_rec_pub[2].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_publicos.parceria_governo_municipal.nr_valor_recursos_osc == ''"><strong>Parceria com o governo municipal: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_publicos.parceria_governo_municipal.nr_valor_recursos_osc != ''"><strong>Parceria com o governo municipal: </strong><span>{{rec.recursos_publicos.parceria_governo_municipal.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_publicos.parceria_governo_municipal == null">
+                    <div (click)="presentAlert('Info', info_rec_pub[2].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Parceria com o governo municipal: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_publicos.acordo_organismos_multilaterais">
+                    <div (click)="presentAlert('Info', info_rec_pub[3].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_publicos.acordo_organismos_multilaterais.nr_valor_recursos_osc == ''"><strong>Acordo com organismos multilaterais: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_publicos.acordo_organismos_multilaterais.nr_valor_recursos_osc != ''"><strong>Acordo com organismos multilaterais: </strong><span>{{rec.recursos_publicos.acordo_organismos_multilaterais.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_publicos.acordo_organismos_multilaterais == null">
+                    <div (click)="presentAlert('Info', info_rec_pub[3].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Acordo com organismos multilaterais: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_publicos.acordo_governos_estrangeiros">
+                    <div (click)="presentAlert('Info', info_rec_pub[4].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_publicos.acordo_governos_estrangeiros.nr_valor_recursos_osc == ''"><strong>Acordo com governos estrangeiros: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_publicos.acordo_governos_estrangeiros.nr_valor_recursos_osc != ''"><strong>Acordo com governos estrangeiros: </strong><span>{{rec.recursos_publicos.acordo_governos_estrangeiros.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_publicos.acordo_governos_estrangeiros == null">
+                    <div (click)="presentAlert('Info', info_rec_pub[4].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Acordo com governos estrangeiros: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_publicos.empresas_publicas_sociedades_economia_mista">
+                    <div (click)="presentAlert('Info', info_rec_pub[5].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_publicos.empresas_publicas_sociedades_economia_mista.nr_valor_recursos_osc == ''"><strong>Empresas públicas ou sociedades de economia mista: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_publicos.empresas_publicas_sociedades_economia_mista.nr_valor_recursos_osc != ''"><strong>Empresas públicas ou sociedades de economia mista: </strong><span>{{rec.recursos_publicos.empresas_publicas_sociedades_economia_mista.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_publicos.empresas_publicas_sociedades_economia_mista == null">
+                    <div (click)="presentAlert('Info', info_rec_pub[5].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Empresas públicas ou sociedades de economia mista: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="rec.recursos_publicos == null">
+                <div><span>Não informado</span></div>
+              </div>
+              <h2 class="h2-tilte-rec">Recursos privados</h2>
+              <div *ngIf="rec.recursos_privados != null">
+                <div>
+                  <div *ngIf="rec.recursos_privados.parceria_oscs_brasileiras">
+                    <div (click)="presentAlert('Info', info_rec_priv[0].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_privados.parceria_oscs_brasileiras.nr_valor_recursos_osc == null"><strong>Parceria com OSCs brasileiras: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_privados.parceria_oscs_brasileiras.nr_valor_recursos_osc != null"><strong>Parceria com OSCs brasileiras: </strong><span>{{rec.recursos_privados.parceria_oscs_brasileiras.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.parceria_oscs_brasileiras == null">
+                    <div (click)="presentAlert('Info', info_rec_priv[0].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Parceria com OSCs brasileiras: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.parcerias_oscs_estrangeiras">
+                    <div (click)="presentAlert('Info', info_rec_priv[1].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_privados.parcerias_oscs_estrangeiras.nr_valor_recursos_osc == null"><strong>Parcerias com OSCs estrangeiras: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_privados.parcerias_oscs_estrangeiras.nr_valor_recursos_osc != null"><strong>Parcerias com OSCs estrangeiras: </strong><span>{{rec.recursos_privados.parcerias_oscs_estrangeiras.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.parcerias_oscs_estrangeiras == null">
+                    <div (click)="presentAlert('Info', info_rec_priv[1].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Parcerias com OSCs estrangeiras: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.parcerias_organizacoes_religiosas_brasileiras">
+                    <div (click)="presentAlert('Info', info_rec_priv[2].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_privados.parcerias_organizacoes_religiosas_brasileiras.nr_valor_recursos_osc == null"><strong>Parcerias com organizações religiosas brasileiras: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_privados.parcerias_organizacoes_religiosas_brasileiras.nr_valor_recursos_osc != null"><strong>Parcerias com organizações religiosas brasileiras: </strong><span>{{rec.recursos_privados.parcerias_organizacoes_religiosas_brasileiras.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.parcerias_organizacoes_religiosas_brasileiras == null">
+                    <div (click)="presentAlert('Info', info_rec_priv[2].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Parcerias com organizações religiosas brasileiras: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.parcerias_organizacoes_religiosas_estrangeiras">
+                    <div (click)="presentAlert('Info', info_rec_priv[3].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_privados.parcerias_organizacoes_religiosas_estrangeiras.nr_valor_recursos_osc == null"><strong>Parcerias com organizações religiosas estrangeiras: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_privados.parcerias_organizacoes_religiosas_estrangeiras.nr_valor_recursos_osc != null"><strong>Parcerias com organizações religiosas estrangeiras: </strong><span>{{rec.recursos_privados.parcerias_organizacoes_religiosas_estrangeiras.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.parcerias_organizacoes_religiosas_estrangeiras == null">
+                    <div (click)="presentAlert('Info', info_rec_priv[3].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Parcerias com organizações religiosas estrangeiras: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.empresas_privadas_brasileiras">
+                    <div (click)="presentAlert('Info', info_rec_priv[4].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_privados.empresas_privadas_brasileiras.nr_valor_recursos_osc == null"><strong>Empresas privadas brasileiras: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_privados.empresas_privadas_brasileiras.nr_valor_recursos_osc != null"><strong>Empresas privadas brasileiras: </strong><span>{{rec.recursos_privados.empresas_privadas_brasileiras.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.empresas_privadas_brasileiras == null">
+                    <div (click)="presentAlert('Info', info_rec_priv[4].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Empresas privadas brasileiras: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.empresas_privadas_estrangeiras">
+                    <div (click)="presentAlert('Info', info_rec_priv[5].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_privados.empresas_privadas_estrangeiras.nr_valor_recursos_osc == null"><strong>Empresas privadas estrangeiras: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_privados.empresas_privadas_estrangeiras.nr_valor_recursos_osc != null"><strong>Empresas privadas estrangeiras: </strong><span>{{rec.recursos_privados.empresas_privadas_estrangeiras.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.empresas_privadas_estrangeiras == null">7
+                    <div (click)="presentAlert('Info', info_rec_priv[5].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Empresas privadas estrangeiras: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.doacoes_pessoa_juridica">
+                    <div (click)="presentAlert('Info', info_rec_priv[6].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_privados.doacoes_pessoa_juridica.nr_valor_recursos_osc == null"><strong>Doações de pessoa jurídica: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_privados.doacoes_pessoa_juridica.nr_valor_recursos_osc != null"><strong>Doações de pessoa jurídica: </strong><span>{{rec.recursos_privados.doacoes_pessoa_juridica.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.doacoes_pessoa_juridica == null">
+                    <div (click)="presentAlert('Info', info_rec_priv[6].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Doações de pessoa jurídica: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.doacoes_pessoa_fisica">
+                    <div (click)="presentAlert('Info', info_rec_priv[7].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_privados.doacoes_pessoa_fisica.nr_valor_recursos_osc == null"><strong>Doações de pessoa física: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_privados.doacoes_pessoa_fisica.nr_valor_recursos_osc != null"><strong>Doações de pessoa física: </strong><span>{{rec.recursos_privados.doacoes_pessoa_fisica.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.doacoes_pessoa_fisica == null">
+                    <div (click)="presentAlert('Info', info_rec_priv[7].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Doações de pessoa física: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.doacoes_recebidas_forma_produtos_servicos_com_nota_fiscal">
+                    <div (click)="presentAlert('Info', info_rec_priv[8].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_privados.doacoes_recebidas_forma_produtos_servicos_com_nota_fiscal.nr_valor_recursos_osc == null"><strong>Doações recebidas na forma de produtos e serviços (com Nota Fiscal): </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_privados.doacoes_recebidas_forma_produtos_servicos_com_nota_fiscal.nr_valor_recursos_osc != null"><strong>Doações recebidas na forma de produtos e serviços (com Nota Fiscal): </strong><span>{{rec.recursos_privados.doacoes_recebidas_forma_produtos_servicos_com_nota_fiscal.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_privados.doacoes_recebidas_forma_produtos_servicos_com_nota_fiscal == null">
+                    <div (click)="presentAlert('Info', info_rec_priv[8].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Doações recebidas na forma de produtos e serviços (com Nota Fiscal): </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="rec.recursos_privados == null">
+                <div><span>Não informado</span></div>
+              </div>
+              <h2 class="h2-tilte-rec">Recursos não financeiros</h2>
+              <div *ngIf="rec.recursos_nao_financeiros != null">
+                <div>
+                  <div *ngIf="rec.recursos_nao_financeiros.voluntariado">
+                    <div (click)="presentAlert('Info', info_rec_nFin[0].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_nao_financeiros.voluntariado.nr_valor_recursos_osc == null"><strong>Voluntariado: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_nao_financeiros.voluntariado.nr_valor_recursos_osc != null"><strong>Voluntariado: </strong><span>{{rec.recursos_nao_financeiros.voluntariado.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_nao_financeiros.voluntariado == null">
+                    <div (click)="presentAlert('Info', info_rec_nFin[0].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Voluntariado: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_nao_financeiros.isencoes">
+                    <div (click)="presentAlert('Info', info_rec_nFin[1].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_nao_financeiros.isencoes.nr_valor_recursos_osc == null"><strong>Isenções: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_nao_financeiros.isencoes.nr_valor_recursos_osc != null"><strong>Isenções: </strong><span>{{rec.recursos_nao_financeiros.isencoes.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_nao_financeiros.isencoes == null">
+                    <div (click)="presentAlert('Info', info_rec_nFin[1].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Isenções: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_nao_financeiros.imunidades">
+                    <div (click)="presentAlert('Info', info_rec_nFin[2].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_nao_financeiros.imunidades.nr_valor_recursos_osc == null"><strong>Imunidades: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_nao_financeiros.imunidades.nr_valor_recursos_osc != null"><strong>Imunidades: </strong><span>{{rec.recursos_nao_financeiros.imunidades.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_nao_financeiros.imunidades == null">
+                    <div (click)="presentAlert('Info', info_rec_nFin[2].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Imunidades: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_nao_financeiros.bens_recebidos_direito_uso">
+                    <div (click)="presentAlert('Info', info_rec_nFin[3].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_nao_financeiros.bens_recebidos_direito_uso.nr_valor_recursos_osc == null"><strong>Bens recebidos em direito de uso: </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_nao_financeiros.bens_recebidos_direito_uso.nr_valor_recursos_osc != null"><strong>Bens recebidos em direito de uso: </strong><span>{{rec.recursos_nao_financeiros.bens_recebidos_direito_uso.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_nao_financeiros.bens_recebidos_direito_uso == null">
+                    <div (click)="presentAlert('Info', info_rec_nFin[3].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Bens recebidos em direito de uso: </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_nao_financeiros.doacoes_recebidas_forma_produtos_servicos_sem_nota_fiscal">
+                    <div (click)="presentAlert('Info', info_rec_nFin[4].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div *ngIf="rec.recursos_nao_financeiros.doacoes_recebidas_forma_produtos_servicos_sem_nota_fiscal.nr_valor_recursos_osc == null"><strong>Doações recebidas na forma de produtos e serviços (sem Nota Fiscal): </strong><span>Não informado</span></div>
+                            <div *ngIf="rec.recursos_nao_financeiros.doacoes_recebidas_forma_produtos_servicos_sem_nota_fiscal.nr_valor_recursos_osc != null"><strong>Doações recebidas na forma de produtos e serviços (sem Nota Fiscal): </strong><span>{{rec.recursos_nao_financeiros.doacoes_recebidas_forma_produtos_servicos_sem_nota_fiscal.nr_valor_recursos_osc | currency:'BRL':true:'2.2-4'}}</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                  <div *ngIf="rec.recursos_nao_financeiros.doacoes_recebidas_forma_produtos_servicos_sem_nota_fiscal == null">
+                    <div (click)="presentAlert('Info', info_rec_nFin[4].title)">
+                      <ion-grid>
+                        <ion-row>
+                          <ion-col col-1><div>
+                            <span><ion-icon name="information-circle"></ion-icon></span>
+                          </div></ion-col>
+                          <ion-col col-11><div>
+                            <div><strong>Doações recebidas na forma de produtos e serviços (sem Nota Fiscal): </strong><span>Não informado</span></div>
+                          </div></ion-col>
+                        </ion-row>
+                      </ion-grid>
+                    </div><br>
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="rec.recursos_nao_financeiros == null">
+                <div><span>Não informado</span></div>
+              </div>
+            </ion-card-content>
+          </expandable>
+        </ion-card>
+      </div>
+    </div>
+  </ion-content>

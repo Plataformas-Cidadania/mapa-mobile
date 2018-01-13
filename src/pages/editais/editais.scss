@@ -1,0 +1,52 @@
+page-editais {
+  button ion-icon{
+    color: #f8f8f8;
+  }
+
+  .toolbar-background-md{
+    background-color: #488aff;
+  }
+
+  .toolbar-title-md{
+    color: #f8f8f8;
+  }
+
+  .segment-md .segment-button{
+    color: #f8f8f8;
+  }
+
+  .txt-editais{
+    text-indent: 2em;
+    text-align: justify;
+    padding: 10px;
+  }
+
+  .title-edital{
+    margin-left: 15px;
+  }
+
+  .card-title-md{
+    font-size: 1.4rem;
+  }
+
+  .card-md{
+    margin: 10px;
+    border-radius: 5px;
+    background-color: #f5f5f5;
+  }
+
+  hr{
+    margin-bottom: 20px;
+    border-top: 1px solid #1659bf;
+  }
+
+  ion-card-title ion-icon{
+    float: right;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+
+  ion-card-content{
+    background-color: #ffffff;
+  }
+}

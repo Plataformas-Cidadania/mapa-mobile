@@ -1,0 +1,10 @@
+expandable {
+  .expand-wrapper{
+    height: 0;
+    transition: 0.5s linear;
+  }
+
+  .expanded{
+    height: auto !important;
+  }
+}
