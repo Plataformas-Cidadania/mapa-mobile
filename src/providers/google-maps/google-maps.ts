@@ -25,10 +25,10 @@ var popupOsc = [];
 @Injectable()
 export class GoogleMapsProvider {
 
-  popup_osc:string = 'http://mapaosc.ipea.gov.br:83/api/osc/popup';
-  api_região = 'http://mapaosc.ipea.gov.br:83/api/geo/cluster/regiao'
-  api_estado = 'http://mapaosc.ipea.gov.br:83/api/geo/cluster/estado/';
-  api_osc_estado = 'http://mapaosc.ipea.gov.br:83/api/search/estado/geo/';
+  popup_osc:string = 'https://mapaosc.ipea.gov.br:8383/api/osc/popup';
+  api_região = 'https://mapaosc.ipea.gov.br:8383/api/geo/cluster/regiao'
+  api_estado = 'https://mapaosc.ipea.gov.br:8383/api/geo/cluster/estado/';
+  api_osc_estado = 'https://mapaosc.ipea.gov.br:8383/api/search/estado/geo/';
 
   mapInitialised: boolean = false;
   private apiKey: any;

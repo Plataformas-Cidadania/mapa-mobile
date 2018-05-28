@@ -6,10 +6,10 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ServiceProvider {
 
-  api_osc:string = 'http://mapaosc.ipea.gov.br:83/api/osc/'
-  api_search_geo = 'http://mapaosc.ipea.gov.br:83/api/search/osc/geo/'
-  api_editais = 'http://mapaosc.ipea.gov.br:83/api/edital'
-  api_autocomplete = 'http://mapaosc.ipea.gov.br:83/api/search/osc/autocomplete/'
+  api_osc:string = 'https://mapaosc.ipea.gov.br:8383/api/osc/'
+  api_search_geo = 'https://mapaosc.ipea.gov.br:8383/api/search/osc/geo/'
+  api_editais = 'https://mapaosc.ipea.gov.br:8383/api/edital'
+  api_autocomplete = 'https://mapaosc.ipea.gov.br:8383/api/search/osc/autocomplete/'
 
   constructor(public http: Http) {
   }
