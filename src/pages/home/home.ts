@@ -85,7 +85,7 @@ export class HomePage {
       this.navCtrl.setRoot(MapPage);
       loadingPopup.dismiss();
     }else{
-      var value = busca.replace(/ /g, "+");
+      var value = busca.replace(/ /g, '_').replace(/[\/|\\|\||:|#|@|$|&|!|?|(|)|\[|\]]/g, '').replace(/\./g, ',');//replace(/ /g, "+");
       this.service.getSearchGeo(value).map(res => res.json()).subscribe(data => {
           this.navCtrl.push(MapPage, {mark: data});
           loadingPopup.dismiss();

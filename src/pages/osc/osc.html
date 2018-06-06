@@ -31,60 +31,60 @@
     <h2 class="h2-tilte">{{itens[0].title}}</h2><br>
     <div>
       <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_nome_fantasia_osc)">
-        <span *ngIf="(osc.dados_gerais.ft_nome_fantasia_osc != 'Representante' && osc.dados_gerais.ft_nome_fantasia_osc != null)">
+        <span *ngIf="(osc.dados_gerais.ft_nome_fantasia_osc != 'Representante de OSC' && osc.dados_gerais.ft_nome_fantasia_osc != null)">
           <img class="img-base-dados" src="assets/img/base_dados.png">
         </span>
-        <span *ngIf="(osc.dados_gerais.ft_nome_fantasia_osc == 'Representante')">
+        <span *ngIf="(osc.dados_gerais.ft_nome_fantasia_osc == 'Representante de OSC')">
           <img class="img-representante" src="assets/img/dado_representante.png">
         </span>
         <span class="span-margin" *ngIf="(osc.dados_gerais.ft_nome_fantasia_osc == null)" ></span>
         <strong>Nome Fantasia: </strong><span>{{(osc.dados_gerais.tx_nome_fantasia_osc)?osc.dados_gerais.tx_nome_fantasia_osc:"Não informado"}}</span>
       </div><br>
       <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_sigla_osc)">
-        <span *ngIf="(osc.dados_gerais.ft_sigla_osc != 'Representante' && osc.dados_gerais.ft_sigla_osc != null)">
+        <span *ngIf="(osc.dados_gerais.ft_sigla_osc != 'Representante de OSC' && osc.dados_gerais.ft_sigla_osc != null)">
           <img class="img-base-dados" src="assets/img/base_dados.png">
         </span>
-        <span *ngIf="(osc.dados_gerais.ft_sigla_osc == 'Representante')">
+        <span *ngIf="(osc.dados_gerais.ft_sigla_osc == 'Representante de OSC')">
           <img  class="img-representante" src="assets/img/dado_representante.png">
         </span>
         <span *ngIf="(osc.dados_gerais.ft_sigla_osc == null)" class="span-margin"></span>
         <strong>Sigla OSC: </strong><span>{{(osc.dados_gerais.tx_sigla_osc)?osc.dados_gerais.tx_sigla_osc:"Não informado"}}</span>
       </div><br>
       <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_endereco)">
-        <span *ngIf="(osc.dados_gerais.ft_endereco != 'Representante' && osc.dados_gerais.ft_endereco != null)">
+        <span *ngIf="(osc.dados_gerais.ft_endereco != 'Representante de OSC' && osc.dados_gerais.ft_endereco != null)">
           <img class="img-base-dados" src="assets/img/base_dados.png">
         </span>
-        <span *ngIf="(osc.dados_gerais.ft_endereco == 'Representante')">
+        <span *ngIf="(osc.dados_gerais.ft_endereco == 'Representante de OSC')">
           <img  class="img-representante" src="assets/img/dado_representante.png">
         </span>
         <span *ngIf="(osc.dados_gerais.ft_endereco == null)" class="span-margin"></span>
         <strong>Endereço da OSC: </strong><span>{{(osc.dados_gerais.tx_endereco)?osc.dados_gerais.tx_endereco:"Não informado"}}</span>
       </div><br>
       <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_situacao_imovel_osc)">
-        <span *ngIf="(osc.dados_gerais.ft_situacao_imovel_osc != 'Representante' && osc.dados_gerais.ft_situacao_imovel_osc != null)">
+        <span *ngIf="(osc.dados_gerais.ft_situacao_imovel_osc != 'Representante de OSC' && osc.dados_gerais.ft_situacao_imovel_osc != null)">
           <img class="img-base-dados" src="assets/img/base_dados.png">
         </span>
-        <span *ngIf="(osc.dados_gerais.ft_situacao_imovel_osc == 'Representante')">
+        <span *ngIf="(osc.dados_gerais.ft_situacao_imovel_osc == 'Representante de OSC')">
           <img  class="img-representante" src="assets/img/dado_representante.png">
         </span>
         <span *ngIf="(osc.dados_gerais.ft_situacao_imovel_osc == null)" class="span-margin"></span>
         <strong>Situação do Imóvel: </strong><span>{{(osc.dados_gerais.tx_nome_situacao_imovel_osc)?osc.dados_gerais.tx_nome_situacao_imovel_osc:"Não informado"}}</span>
       </div><br>
       <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_nome_responsavel_legal)">
-        <span *ngIf="(osc.dados_gerais.ft_nome_responsavel_legal != 'Representante' && osc.dados_gerais.ft_nome_responsavel_legal != null)">
+        <span *ngIf="(osc.dados_gerais.ft_nome_responsavel_legal != 'Representante de OSC' && osc.dados_gerais.ft_nome_responsavel_legal != null)">
           <img class="img-base-dados" src="assets/img/base_dados.png">
         </span>
-        <span *ngIf="(osc.dados_gerais.ft_nome_responsavel_legal == 'Representante')">
+        <span *ngIf="(osc.dados_gerais.ft_nome_responsavel_legal == 'Representante de OSC')">
           <img  class="img-representante" src="assets/img/dado_representante.png">
         </span>
         <span *ngIf="(osc.dados_gerais.ft_nome_responsavel_legal == null)" class="span-margin"></span>
         <strong>Responsável Legal: </strong><span>{{(osc.dados_gerais.tx_nome_responsavel_legal)?osc.dados_gerais.tx_nome_responsavel_legal:"Não informado"}}</span>
       </div><br>
       <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_ano_cadastro_cnpj)">
-        <span *ngIf="(osc.dados_gerais.ft_ano_cadastro_cnpj != 'Representante' && osc.dados_gerais.ft_ano_cadastro_cnpj != null)">
+        <span *ngIf="(osc.dados_gerais.ft_ano_cadastro_cnpj != 'Representante de OSC' && osc.dados_gerais.ft_ano_cadastro_cnpj != null)">
           <img class="img-base-dados" src="assets/img/base_dados.png">
         </span>
-        <span *ngIf="(osc.dados_gerais.ft_ano_cadastro_cnpj == 'Representante')">
+        <span *ngIf="(osc.dados_gerais.ft_ano_cadastro_cnpj == 'Representante de OSC')">
           <img  class="img-representante" src="assets/img/dado_representante.png">
         </span>
         <span *ngIf="(osc.dados_gerais.ft_ano_cadastro_cnpj == null)" class="span-margin"></span>
@@ -93,10 +93,10 @@
         <span *ngIf="(!osc.dados_gerais.dt_ano_cadastro_cnpj)">Não informado</span>
       </div><br>
       <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_fundacao_osc)">
-        <span *ngIf="(osc.dados_gerais.ft_fundacao_osc != 'Representante' && osc.dados_gerais.ft_fundacao_osc != null)">
+        <span *ngIf="(osc.dados_gerais.ft_fundacao_osc != 'Representante de OSC' && osc.dados_gerais.ft_fundacao_osc != null)">
           <img class="img-base-dados" src="assets/img/base_dados.png">
         </span>
-        <span *ngIf="(osc.dados_gerais.ft_fundacao_osc == 'Representante')">
+        <span *ngIf="(osc.dados_gerais.ft_fundacao_osc == 'Representante de OSC')">
           <img  class="img-representante" src="assets/img/dado_representante.png">
         </span>
         <span *ngIf="(osc.dados_gerais.ft_fundacao_osc == null)" class="span-margin"></span>
@@ -105,40 +105,40 @@
         <span *ngIf="(!osc.dados_gerais.dt_fundacao_osc)">Não informado</span>
       </div><br>
       <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_email)">
-        <span *ngIf="(osc.dados_gerais.ft_email != 'Representante' && osc.dados_gerais.ft_email != null)">
+        <span *ngIf="(osc.dados_gerais.ft_email != 'Representante de OSC' && osc.dados_gerais.ft_email != null)">
           <img class="img-base-dados" src="assets/img/base_dados.png">
         </span>
-        <span *ngIf="(osc.dados_gerais.ft_email == 'Representante')">
+        <span *ngIf="(osc.dados_gerais.ft_email == 'Representante de OSC')">
           <img  class="img-representante" src="assets/img/dado_representante.png">
         </span>
         <span *ngIf="(osc.dados_gerais.ft_email == null)" class="span-margin"></span>
         <strong>E-mail: </strong><span>{{(osc.dados_gerais.tx_email)?osc.dados_gerais.tx_email:"Não informado"}}</span>
       </div><br>
       <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_resumo_osc)">
-        <span *ngIf="(osc.dados_gerais.ft_resumo_osc != 'Representante' && osc.dados_gerais.ft_resumo_osc != null)">
+        <span *ngIf="(osc.dados_gerais.ft_resumo_osc != 'Representante de OSC' && osc.dados_gerais.ft_resumo_osc != null)">
           <img class="img-base-dados" src="assets/img/base_dados.png">
         </span>
-        <span *ngIf="(osc.dados_gerais.ft_resumo_osc == 'Representante')">
+        <span *ngIf="(osc.dados_gerais.ft_resumo_osc == 'Representante de OSC')">
           <img  class="img-representante" src="assets/img/dado_representante.png">
         </span>
         <span *ngIf="(osc.dados_gerais.ft_resumo_osc == null)" class="span-margin"></span>
         <strong>O que a OSC faz: </strong><span>{{(osc.dados_gerais.tx_resumo_osc)?osc.dados_gerais.tx_resumo_osc:"Não informado"}}</span>
       </div><br>
       <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_site)">
-        <span *ngIf="(osc.dados_gerais.ft_site != 'Representante' && osc.dados_gerais.ft_site != null)">
+        <span *ngIf="(osc.dados_gerais.ft_site != 'Representante de OSC' && osc.dados_gerais.ft_site != null)">
           <img class="img-base-dados" src="assets/img/base_dados.png">
         </span>
-        <span *ngIf="(osc.dados_gerais.ft_site == 'Representante')">
+        <span *ngIf="(osc.dados_gerais.ft_site == 'Representante de OSC')">
           <img  class="img-representante" src="assets/img/dado_representante.png">
         </span>
         <span *ngIf="(osc.dados_gerais.ft_site == null)" class="span-margin"></span>
         <strong>Site: </strong><span>{{(osc.dados_gerais.tx_site)?osc.dados_gerais.tx_site:"Não informado"}}</span>
       </div><br>
       <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_telefone)">
-        <span *ngIf="(osc.dados_gerais.ft_telefone != 'Representante' && osc.dados_gerais.ft_telefone != null)">
+        <span *ngIf="(osc.dados_gerais.ft_telefone != 'Representante de OSC' && osc.dados_gerais.ft_telefone != null)">
           <img class="img-base-dados" src="assets/img/base_dados.png">
         </span>
-        <span *ngIf="(osc.dados_gerais.ft_telefone == 'Representante')">
+        <span *ngIf="(osc.dados_gerais.ft_telefone == 'Representante de OSC')">
           <img  class="img-representante" src="assets/img/dado_representante.png">
         </span>
         <span *ngIf="(osc.dados_gerais.ft_telefone == null)" class="span-margin"></span>
@@ -153,10 +153,10 @@
     <h2 class="h2-tilte">{{itens[1].title}}</h2><br>
     <div>
       <div (click)="presentAlert('Fonte', osc.dados_gerais.ft_atividade_economica_osc)">
-        <span *ngIf="(osc.dados_gerais.ft_atividade_economica_osc != 'Representante' && osc.dados_gerais.ft_atividade_economica_osc != null)">
+        <span *ngIf="(osc.dados_gerais.ft_atividade_economica_osc != 'Representante de OSC' && osc.dados_gerais.ft_atividade_economica_osc != null)">
           <img class="img-base-dados" src="assets/img/base_dados.png">
         </span>
-        <span *ngIf="(osc.dados_gerais.ft_atividade_economica_osc == 'Representante')">
+        <span *ngIf="(osc.dados_gerais.ft_atividade_economica_osc == 'Representante de OSC')">
           <img  class="img-representante" src="assets/img/dado_representante.png">
         </span>
         <span *ngIf="(osc.dados_gerais.ft_atividade_economica_osc == null)" class="span-margin"></span>
@@ -165,10 +165,10 @@
       <div *ngIf="osc.area_atuacao">
         <div *ngFor="let area of osc.area_atuacao.area_atuacao">
           <div (click)="presentAlert('Fonte', area.ft_area_atuacao)" *ngIf="(area.tx_nome_area_atuacao == 'Outros')">
-            <span *ngIf="(area.ft_area_atuacao != 'Representante' && area.ft_area_atuacao != null)">
+            <span *ngIf="(area.ft_area_atuacao != 'Representante de OSC' && area.ft_area_atuacao != null)">
               <img class="img-base-dados" src="assets/img/base_dados.png">
             </span>
-            <span *ngIf="(area.ft_area_atuacao == 'Representante')">
+            <span *ngIf="(area.ft_area_atuacao == 'Representante de OSC')">
               <img  class="img-representante" src="assets/img/dado_representante.png">
             </span>
             <span *ngIf="(area.ft_area_atuacao == null)" class="span-margin"></span>
@@ -176,10 +176,10 @@
           </div><br>
           <div *ngIf="(area.tx_nome_area_atuacao != 'Outros')">
             <div (click)="presentAlert('Fonte', area.ft_area_atuacao)">
-              <span *ngIf="(area.ft_area_atuacao != 'Representante' && area.ft_area_atuacao != null)">
+              <span *ngIf="(area.ft_area_atuacao != 'Representante de OSC' && area.ft_area_atuacao != null)">
                 <img class="img-base-dados" src="assets/img/base_dados.png">
               </span>
-              <span *ngIf="(area.ft_area_atuacao == 'Representante')">
+              <span *ngIf="(area.ft_area_atuacao == 'Representante de OSC')">
                 <img  class="img-representante" src="assets/img/dado_representante.png">
               </span>
               <span *ngIf="(area.ft_area_atuacao == null)" class="span-margin"></span>
@@ -187,10 +187,10 @@
             </div><br>
             <div *ngFor="let subarea of area.subarea_atuacao">
               <div (click)="presentAlert('Fonte', subarea.ft_subarea_atuacao)">
-                <span *ngIf="(subarea.ft_subarea_atuacao != 'Representante' && subarea.ft_subarea_atuacao != null)">
+                <span *ngIf="(subarea.ft_subarea_atuacao != 'Representante de OSC' && subarea.ft_subarea_atuacao != null)">
                   <img class="img-base-dados-sub" src="assets/img/base_dados.png">
                 </span>
-                <span *ngIf="(subarea.ft_subarea_atuacao == 'Representante')">
+                <span *ngIf="(subarea.ft_subarea_atuacao == 'Representante de OSC')">
                   <img  class="img-representante-sub" src="assets/img/dado_representante.png">
                 </span>
                 <span *ngIf="(subarea.ft_subarea_atuacao == null)" class="span-margin"></span>
@@ -212,50 +212,50 @@
       <h2 class="h2-tilte">{{itens[2].title}}</h2><br>
       <div *ngIf="osc.descricao">
         <div (click)="presentAlert('Fonte', osc.descricao.ft_historico)">
-          <span *ngIf="(osc.descricao.ft_historico != 'Representante' && osc.descricao.ft_historico != null)">
+          <span *ngIf="(osc.descricao.ft_historico != 'Representante de OSC' && osc.descricao.ft_historico != null)">
             <img class="img-base-dados" src="assets/img/base_dados.png">
           </span>
-          <span *ngIf="(osc.descricao.ft_historico == 'Representante')">
+          <span *ngIf="(osc.descricao.ft_historico == 'Representante de OSC')">
             <img  class="img-representante" src="assets/img/dado_representante.png">
           </span>
           <span *ngIf="(osc.descricao.ft_historico == null)" class="span-margin"></span>
           <strong>Como surgiu a OSC: </strong><span>{{(osc.descricao.tx_historico)?osc.descricao.tx_historico:"Não informado"}}</span>
         </div><br>
         <div (click)="presentAlert('Fonte', osc.descricao.ft_missao_osc)">
-          <span *ngIf="(osc.descricao.ft_missao_osc != 'Representante' && osc.descricao.ft_missao_osc != null)">
+          <span *ngIf="(osc.descricao.ft_missao_osc != 'Representante de OSC' && osc.descricao.ft_missao_osc != null)">
             <img class="img-base-dados" src="assets/img/base_dados.png">
           </span>
-          <span *ngIf="(osc.descricao.ft_missao_osc == 'Representante')">
+          <span *ngIf="(osc.descricao.ft_missao_osc == 'Representante de OSC')">
             <img  class="img-representante" src="assets/img/dado_representante.png">
           </span>
           <span *ngIf="(osc.descricao.ft_missao_osc == null)" class="span-margin"></span>
           <strong>Missão da OSC: </strong><span>{{(osc.descricao.tx_missao_osc)?osc.descricao.tx_missao_osc:"Não informado"}}</span>
         </div><br>
         <div (click)="presentAlert('Fonte', osc.descricao.ft_visao_osc)">
-          <span *ngIf="(osc.descricao.ft_visao_osc != 'Representante' && osc.descricao.ft_visao_osc != null)">
+          <span *ngIf="(osc.descricao.ft_visao_osc != 'Representante de OSC' && osc.descricao.ft_visao_osc != null)">
             <img class="img-base-dados" src="assets/img/base_dados.png">
           </span>
-          <span *ngIf="(osc.descricao.ft_visao_osc == 'Representante')">
+          <span *ngIf="(osc.descricao.ft_visao_osc == 'Representante de OSC')">
             <img  class="img-representante" src="assets/img/dado_representante.png">
           </span>
           <span *ngIf="(osc.descricao.ft_visao_osc == null)" class="span-margin"></span>
           <strong>Visão da OSC: </strong><span>{{(osc.descricao.tx_visao_osc)?osc.descricao.tx_visao_osc:"Não informado"}}</span>
         </div><br>
         <div (click)="presentAlert('Fonte', osc.descricao.ft_finalidades_estatutarias)">
-          <span *ngIf="(osc.descricao.ft_finalidades_estatutarias != 'Representante' && osc.descricao.ft_finalidades_estatutarias != null)">
+          <span *ngIf="(osc.descricao.ft_finalidades_estatutarias != 'Representante de OSC' && osc.descricao.ft_finalidades_estatutarias != null)">
             <img class="img-base-dados" src="assets/img/base_dados.png">
           </span>
-          <span *ngIf="(osc.descricao.ft_finalidades_estatutarias == 'Representante')">
+          <span *ngIf="(osc.descricao.ft_finalidades_estatutarias == 'Representante de OSC')">
             <img  class="img-representante" src="assets/img/dado_representante.png">
           </span>
           <span *ngIf="(osc.descricao.ft_finalidades_estatutarias == null)" class="span-margin"></span>
           <strong>Finalidades Estatutárias da OSC: </strong><span>{{(osc.descricao.tx_finalidades_estatutarias)?osc.descricao.tx_finalidades_estatutarias:"Não informado"}}</span>
         </div><br>
         <div (click)="presentAlert('Fonte', osc.descricao.ft_link_estatuto_osc)">
-          <span *ngIf="(osc.descricao.ft_link_estatuto_osc != 'Representante' && osc.descricao.ft_link_estatuto_osc != null)">
+          <span *ngIf="(osc.descricao.ft_link_estatuto_osc != 'Representante de OSC' && osc.descricao.ft_link_estatuto_osc != null)">
             <img class="img-base-dados" src="assets/img/base_dados.png">
           </span>
-          <span *ngIf="(osc.descricao.ft_link_estatuto_osc == 'Representante')">
+          <span *ngIf="(osc.descricao.ft_link_estatuto_osc == 'Representante de OSC')">
             <img  class="img-representante" src="assets/img/dado_representante.png">
           </span>
           <span *ngIf="(osc.descricao.ft_link_estatuto_osc == null)" class="span-margin"></span>
@@ -278,10 +278,10 @@
         <div *ngIf="osc.certificado">
           <div *ngFor="let certificado of osc.certificado.certificado">
             <div (click)="presentAlert('Fonte', certificado.ft_certificado)">
-              <span *ngIf="(certificado.ft_certificado != 'Representante' && certificado.ft_certificado != null)">
+              <span *ngIf="(certificado.ft_certificado != 'Representante de OSC' && certificado.ft_certificado != null)">
                 <img class="img-base-dados" src="assets/img/base_dados.png">
               </span>
-              <span *ngIf="(certificado.ft_certificado == 'Representante')">
+              <span *ngIf="(certificado.ft_certificado == 'Representante de OSC')">
                 <img  class="img-representante" src="assets/img/dado_representante.png">
               </span>
               <span *ngIf="(certificado.ft_certificado == null)" class="span-margin"></span>
@@ -302,87 +302,98 @@
       <div>
         <div>
           <div><span class="span-margin"></span><strong>Quadro de Dirigentes</strong></div>
-          <div *ngIf=" osc.relacoes_trabalho_governanca.governanca == null">
+          <div *ngIf=" osc.relacoes_trabalho_governanca == null">
             <span class="span-margin"></span>
             <span>Não informado</span>
           </div><br>
-          <div *ngFor="let governanca of osc.relacoes_trabalho_governanca.governanca">
-            <div (click)="presentAlert('Fonte', governanca.ft_cargo_dirigente)">
-              <span *ngIf="(governanca.ft_cargo_dirigente != 'Representante' && governanca.ft_cargo_dirigente != null)">
-                <img class="img-base-dados" src="assets/img/base_dados.png">
-              </span>
-              <span *ngIf="(governanca.ft_cargo_dirigente == 'Representante')">
-                <img  class="img-representante" src="assets/img/dado_representante.png">
-              </span>
-              <span *ngIf="(governanca.ft_cargo_dirigente == null)" class="span-margin"></span>
-              <strong>{{governanca.tx_cargo_dirigente}}: </strong>
-              <span>{{(governanca.tx_nome_dirigente)?governanca.tx_nome_dirigente:"Não informado"}}</span>
-            </div><br>
-          </div></div><br>
-          <div>
-            <div><span class="span-margin"></span><strong>Conselho Fiscal</strong></div>
-            <div *ngIf=" osc.relacoes_trabalho_governanca.conselho_fiscal == null">
+          <div *ngIf=" osc.relacoes_trabalho_governanca != null">
+            <div *ngIf=" osc.relacoes_trabalho_governanca.governanca == null">
               <span class="span-margin"></span>
               <span>Não informado</span>
             </div><br>
-            <div *ngFor="let conselho_fiscal of osc.relacoes_trabalho_governanca.conselho_fiscal">
-              <div (click)="presentAlert('Fonte', conselho_fiscal.ft_nome_conselheiro)">
-                <span *ngIf="(conselho_fiscal.ft_nome_conselheiro != 'Representante' && conselho_fiscal.ft_nome_conselheiro != null)">
+            <div *ngFor="let governanca of osc.relacoes_trabalho_governanca.governanca">
+              <div (click)="presentAlert('Fonte', governanca.ft_cargo_dirigente)">
+                <span *ngIf="(governanca.ft_cargo_dirigente != 'Representante de OSC' && governanca.ft_cargo_dirigente != null)">
                   <img class="img-base-dados" src="assets/img/base_dados.png">
                 </span>
-                <span *ngIf="(conselho_fiscal.ft_nome_conselheiro == 'Representante')">
+                <span *ngIf="(governanca.ft_cargo_dirigente == 'Representante de OSC')">
                   <img  class="img-representante" src="assets/img/dado_representante.png">
                 </span>
-                <span *ngIf="(conselho_fiscal.ft_nome_conselheiro == null)" class="span-margin"></span>
-                <span>{{(conselho_fiscal.tx_nome_conselheiro)?conselho_fiscal.tx_nome_conselheiro:"Não informado"}}</span>
+                <span *ngIf="(governanca.ft_cargo_dirigente == null)" class="span-margin"></span>
+                <strong>{{governanca.tx_cargo_dirigente}}: </strong>
+                <span>{{(governanca.tx_nome_dirigente)?governanca.tx_nome_dirigente:"Não informado"}}</span>
               </div><br>
             </div>
-          </div><br>
+          </div>
+        </div><br>
+          <div>
+            <div><span class="span-margin"></span><strong>Conselho Fiscal</strong></div>
+            <div *ngIf=" osc.relacoes_trabalho_governanca != null">
+              <div *ngIf=" osc.relacoes_trabalho_governanca.conselho_fiscal == null">
+                <span class="span-margin"></span>
+                <span>Não informado</span>
+              </div><br>
+              <div *ngFor="let conselho_fiscal of osc.relacoes_trabalho_governanca.conselho_fiscal">
+                <div (click)="presentAlert('Fonte', conselho_fiscal.ft_nome_conselheiro)">
+                  <span *ngIf="(conselho_fiscal.ft_nome_conselheiro != 'Representante de OSC' && conselho_fiscal.ft_nome_conselheiro != null)">
+                    <img class="img-base-dados" src="assets/img/base_dados.png">
+                  </span>
+                  <span *ngIf="(conselho_fiscal.ft_nome_conselheiro == 'Representante de OSC')">
+                    <img  class="img-representante" src="assets/img/dado_representante.png">
+                  </span>
+                  <span *ngIf="(conselho_fiscal.ft_nome_conselheiro == null)" class="span-margin"></span>
+                  <span>{{(conselho_fiscal.tx_nome_conselheiro)?conselho_fiscal.tx_nome_conselheiro:"Não informado"}}</span>
+                </div><br>
+              </div>
+            </div><br>
+          </div>
           <div>
             <div><span class="span-margin"></span><strong>Trabalhadores</strong></div><br>
-            <div (click)="presentAlert('Fonte', osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores)">
-              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores != 'Representante' && osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores != null)">
-                <img class="img-base-dados" src="assets/img/base_dados.png">
-              </span>
-              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores == 'Representante')">
-                <img  class="img-representante" src="assets/img/dado_representante.png">
-              </span>
-              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores == null)" class="span-margin"></span>
-              <strong>Total de Trabalhadores:</strong>
-              <span>{{(osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores != null)?osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores:"Não informado"}}</span><br>
-            </div><br>
-            <div (click)="presentAlert('Fonte', osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo)">
-              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo != 'Representante' && osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo != null)">
-                <img class="img-base-dados" src="assets/img/base_dados.png">
-              </span>
-              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo == 'Representante')">
-                <img  class="img-representante" src="assets/img/dado_representante.png">
-              </span>
-              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo == null)" class="span-margin"></span>
-              <strong>Empregados:</strong>
-              <span>{{(osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_vinculo != null)?osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_vinculo:"Não informado"}}</span><br>
-            </div><br>
-            <div (click)="presentAlert('Fonte', osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia)">
-              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia != 'Representante' && osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia != null)">
-                <img class="img-base-dados" src="assets/img/base_dados.png">
-              </span>
-              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia == 'Representante')">
-                <img  class="img-representante" src="assets/img/dado_representante.png">
-              </span>
-              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia == null)" class="span-margin"></span>
-              <strong>Trabalhadores com deficiência:</strong>
-              <span>{{(osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_deficiencia != null)?osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_deficiencia:"Não informado"}}</span><br>
-            </div><br>
-            <div (click)="presentAlert('Fonte', osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios)">
-              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios != 'Representante' && osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios != null)">
-                <img class="img-base-dados" src="assets/img/base_dados.png">
-              </span>
-              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios == 'Representante')">
-                <img  class="img-representante" src="assets/img/dado_representante.png">
-              </span>
-              <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios == null)" class="span-margin"></span>
-              <strong>Trabalhadores voluntários:</strong>
-              <span>{{(osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_voluntarios)?osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_voluntarios:"Não informado"}}</span><br>
+            <div *ngIf=" osc.relacoes_trabalho_governanca != null">
+              <div (click)="presentAlert('Fonte', osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores)">
+                <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores != 'Representante de OSC' && osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores != null)">
+                  <img class="img-base-dados" src="assets/img/base_dados.png">
+                </span>
+                <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores == 'Representante de OSC')">
+                  <img  class="img-representante" src="assets/img/dado_representante.png">
+                </span>
+                <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores == null)" class="span-margin"></span>
+                <strong>Total de Trabalhadores:</strong>
+                <span>{{(osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores != null)?osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores:"Não informado"}}</span><br>
+              </div><br>
+              <div (click)="presentAlert('Fonte', osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo)">
+                <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo != 'Representante de OSC' && osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo != null)">
+                  <img class="img-base-dados" src="assets/img/base_dados.png">
+                </span>
+                <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo == 'Representante de OSC')">
+                  <img  class="img-representante" src="assets/img/dado_representante.png">
+                </span>
+                <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_vinculo == null)" class="span-margin"></span>
+                <strong>Empregados:</strong>
+                <span>{{(osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_vinculo != null)?osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_vinculo:"Não informado"}}</span><br>
+              </div><br>
+              <div (click)="presentAlert('Fonte', osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia)">
+                <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia != 'Representante de OSC' && osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia != null)">
+                  <img class="img-base-dados" src="assets/img/base_dados.png">
+                </span>
+                <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia == 'Representante de OSC')">
+                  <img  class="img-representante" src="assets/img/dado_representante.png">
+                </span>
+                <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_deficiencia == null)" class="span-margin"></span>
+                <strong>Trabalhadores com deficiência:</strong>
+                <span>{{(osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_deficiencia != null)?osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_deficiencia:"Não informado"}}</span><br>
+              </div><br>
+              <div (click)="presentAlert('Fonte', osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios)">
+                <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios != 'Representante de OSC' && osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios != null)">
+                  <img class="img-base-dados" src="assets/img/base_dados.png">
+                </span>
+                <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios == 'Representante de OSC')">
+                  <img  class="img-representante" src="assets/img/dado_representante.png">
+                </span>
+                <span *ngIf="(osc.relacoes_trabalho_governanca.relacoes_trabalho.ft_trabalhadores_voluntarios == null)" class="span-margin"></span>
+                <strong>Trabalhadores voluntários:</strong>
+                <span>{{(osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_voluntarios)?osc.relacoes_trabalho_governanca.relacoes_trabalho.nr_trabalhadores_voluntarios:"Não informado"}}</span><br>
+              </div>
             </div><br>
           </div><br>
         </div>
@@ -397,10 +408,10 @@
             <div *ngFor="let conselho of osc.participacao_social.conselho">
               <div><br>
                 <div (click)="presentAlert('Fonte', conselho.conselho.ft_conselho)">
-                  <span *ngIf="(conselho.conselho.ft_conselho != 'Representante' && conselho.conselho.ft_conselho != null)">
+                  <span *ngIf="(conselho.conselho.ft_conselho != 'Representante de OSC' && conselho.conselho.ft_conselho != null)">
                     <img class="img-base-dados" src="assets/img/base_dados.png">
                   </span>
-                  <span *ngIf="(conselho.conselho.ft_conselho == 'Representante')">
+                  <span *ngIf="(conselho.conselho.ft_conselho == 'Representante de OSC')">
                     <img  class="img-representante" src="assets/img/dado_representante.png">
                   </span>
                   <span *ngIf="(conselho.conselho.ft_conselho == null)" class="span-margin"></span>
@@ -408,10 +419,10 @@
                   <span>{{(conselho.conselho.tx_nome_conselho)?conselho.conselho.tx_nome_conselho:"Não informado"}}</span>
                 </div><br>
                 <div (click)="presentAlert('Fonte', conselho.conselho.ft_tipo_participacao)">
-                  <span *ngIf="(conselho.conselho.ft_tipo_participacao != 'Representante' && conselho.conselho.ft_tipo_participacao != null)">
+                  <span *ngIf="(conselho.conselho.ft_tipo_participacao != 'Representante de OSC' && conselho.conselho.ft_tipo_participacao != null)">
                     <img class="img-base-dados" src="assets/img/base_dados.png">
                   </span>
-                  <span *ngIf="(conselho.conselho.ft_tipo_participacao == 'Representante')">
+                  <span *ngIf="(conselho.conselho.ft_tipo_participacao == 'Representante de OSC')">
                     <img  class="img-representante" src="assets/img/dado_representante.png">
                   </span>
                   <span *ngIf="(conselho.conselho.ft_tipo_participacao == null)" class="span-margin"></span>
@@ -422,10 +433,10 @@
                   <div><span class="span-margin"></span><strong>Nome de representante: </strong></div>
                   <div *ngFor="let representante of conselho.representante">
                     <div (click)="presentAlert('Fonte', representante.ft_nome_representante_conselho)">
-                      <span *ngIf="(representante.ft_nome_representante_conselho != 'Representante' && representante.ft_nome_representante_conselho != null)">
+                      <span *ngIf="(representante.ft_nome_representante_conselho != 'Representante de OSC' && representante.ft_nome_representante_conselho != null)">
                         <img class="img-base-dados" src="assets/img/base_dados.png">
                       </span>
-                      <span *ngIf="(representante.ft_nome_representante_conselho == 'Representante')">
+                      <span *ngIf="(representante.ft_nome_representante_conselho == 'Representante de OSC')">
                         <img  class="img-representante" src="assets/img/dado_representante.png">
                       </span>
                       <span *ngIf="(representante.ft_nome_representante_conselho == null)" class="span-margin"></span>
@@ -437,10 +448,10 @@
                   <div><span class="span-margin"></span><strong>Nome de representante: </strong><span>Não informado</span></div>
                 </div><br>
                 <div (click)="presentAlert('Fonte', conselho.conselho.ft_periodicidade_reuniao)">
-                  <span *ngIf="(conselho.conselho.ft_periodicidade_reuniao != 'Representante' && conselho.conselho.ft_periodicidade_reuniao != null)">
+                  <span *ngIf="(conselho.conselho.ft_periodicidade_reuniao != 'Representante de OSC' && conselho.conselho.ft_periodicidade_reuniao != null)">
                     <img class="img-base-dados" src="assets/img/base_dados.png">
                   </span>
-                  <span *ngIf="(conselho.conselho.ft_periodicidade_reuniao == 'Representante')">
+                  <span *ngIf="(conselho.conselho.ft_periodicidade_reuniao == 'Representante de OSC')">
                     <img  class="img-representante" src="assets/img/dado_representante.png">
                   </span>
                   <span *ngIf="(conselho.conselho.ft_periodicidade_reuniao == null)" class="span-margin"></span>
@@ -448,10 +459,10 @@
                   <span>{{(conselho.conselho.tx_nome_periodicidade_reuniao_conselho)?conselho.conselho.tx_nome_periodicidade_reuniao_conselho:"Não informado"}}</span>
                 </div><br>
                 <div (click)="presentAlert('Fonte', conselho.conselho.ft_data_inicio_conselho)">
-                  <span *ngIf="(conselho.conselho.ft_data_inicio_conselho != 'Representante' && conselho.conselho.ft_data_inicio_conselho != null)">
+                  <span *ngIf="(conselho.conselho.ft_data_inicio_conselho != 'Representante de OSC' && conselho.conselho.ft_data_inicio_conselho != null)">
                     <img class="img-base-dados" src="assets/img/base_dados.png">
                   </span>
-                  <span *ngIf="(conselho.conselho.ft_data_inicio_conselho == 'Representante')">
+                  <span *ngIf="(conselho.conselho.ft_data_inicio_conselho == 'Representante de OSC')">
                     <img  class="img-representante" src="assets/img/dado_representante.png">
                   </span>
                   <span *ngIf="(conselho.conselho.ft_data_inicio_conselho == null)" class="span-margin"></span>
@@ -459,10 +470,10 @@
                   <span>{{(conselho.conselho.dt_data_inicio_conselho)?conselho.conselho.dt_data_inicio_conselho:"Não informado"}}</span>
                 </div><br>
                 <div (click)="presentAlert('Fonte', conselho.conselho.ft_data_fim_conselho)">
-                  <span *ngIf="(conselho.conselho.ft_data_fim_conselho != 'Representante' && conselho.conselho.ft_data_fim_conselho != null)">
+                  <span *ngIf="(conselho.conselho.ft_data_fim_conselho != 'Representante de OSC' && conselho.conselho.ft_data_fim_conselho != null)">
                     <img class="img-base-dados" src="assets/img/base_dados.png">
                   </span>
-                  <span *ngIf="(conselho.conselho.ft_data_fim_conselho == 'Representante')">
+                  <span *ngIf="(conselho.conselho.ft_data_fim_conselho == 'Representante de OSC')">
                     <img  class="img-representante" src="assets/img/dado_representante.png">
                   </span>
                   <span *ngIf="(conselho.conselho.ft_data_fim_conselho == null)" class="span-margin"></span>
@@ -480,10 +491,10 @@
             <div *ngFor="let conferencia of osc.participacao_social.conferencia">
               <div><br>
                 <div (click)="presentAlert('Fonte', conferencia.ft_ano_realizacao)">
-                  <span *ngIf="(conferencia.ft_ano_realizacao != 'Representante' && conferencia.ft_ano_realizacao != null)">
+                  <span *ngIf="(conferencia.ft_ano_realizacao != 'Representante de OSC' && conferencia.ft_ano_realizacao != null)">
                     <img class="img-base-dados" src="assets/img/base_dados.png">
                   </span>
-                  <span *ngIf="(conferencia.ft_ano_realizacao == 'Representante')">
+                  <span *ngIf="(conferencia.ft_ano_realizacao == 'Representante de OSC')">
                     <img  class="img-representante" src="assets/img/dado_representante.png">
                   </span>
                   <span *ngIf="(conferencia.ft_ano_realizacao == null)" class="span-margin"></span>
@@ -492,10 +503,10 @@
                   <span *ngIf="(!conferencia.dt_ano_realizacao)">Não informado</span>
                 </div><br>
                 <div (click)="presentAlert('Fonte', conferencia.ft_conferencia)">
-                  <span *ngIf="(conferencia.ft_conferencia != 'Representante' && conferencia.ft_conferencia != null)">
+                  <span *ngIf="(conferencia.ft_conferencia != 'Representante de OSC' && conferencia.ft_conferencia != null)">
                     <img class="img-base-dados" src="assets/img/base_dados.png">
                   </span>
-                  <span *ngIf="(conferencia.ft_conferencia == 'Representante')">
+                  <span *ngIf="(conferencia.ft_conferencia == 'Representante de OSC')">
                     <img  class="img-representante" src="assets/img/dado_representante.png">
                   </span>
                   <span *ngIf="(conferencia.ft_conferencia == null)" class="span-margin"></span>
@@ -503,10 +514,10 @@
                   <span>{{(conferencia.tx_nome_conferencia)?conferencia.tx_nome_conferencia:"Não informado"}}</span>
                 </div><br>
                 <div (click)="presentAlert('Fonte', conferencia.ft_forma_participacao_conferencia)">
-                  <span *ngIf="(conferencia.ft_forma_participacao_conferencia != 'Representante' && conferencia.ft_forma_participacao_conferencia != null)">
+                  <span *ngIf="(conferencia.ft_forma_participacao_conferencia != 'Representante de OSC' && conferencia.ft_forma_participacao_conferencia != null)">
                     <img class="img-base-dados" src="assets/img/base_dados.png">
                   </span>
-                  <span *ngIf="(conferencia.ft_forma_participacao_conferencia == 'Representante')">
+                  <span *ngIf="(conferencia.ft_forma_participacao_conferencia == 'Representante de OSC')">
                     <img  class="img-representante" src="assets/img/dado_representante.png">
                   </span>
                   <span *ngIf="(conferencia.ft_forma_participacao_conferencia == null)" class="span-margin"></span>
@@ -524,10 +535,10 @@
             <div ><span class="span-margin"></span><strong>Atuação em Fóruns, Articulações, Coletivos e Redes de OSCs: </strong></div>
             <div *ngFor="let outra of osc.participacao_social.outra">
               <br><div (click)="presentAlert('Fonte', outra.ft_participacao_social_outra)">
-                <span *ngIf="(outra.ft_participacao_social_outra != 'Representante' && outra.ft_participacao_social_outra != null)">
+                <span *ngIf="(outra.ft_participacao_social_outra != 'Representante de OSC' && outra.ft_participacao_social_outra != null)">
                   <img class="img-base-dados" src="assets/img/base_dados.png">
                 </span>
-                <span *ngIf="(outra.ft_participacao_social_outra == 'Representante')">
+                <span *ngIf="(outra.ft_participacao_social_outra == 'Representante de OSC')">
                   <img  class="img-representante" src="assets/img/dado_representante.png">
                 </span>
                 <span *ngIf="(outra.ft_participacao_social_outra == null)" class="span-margin"></span>
@@ -557,10 +568,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(proj.ft_descricao_projeto != 'Representante' && proj.ft_descricao_projeto != null)">
+                          <span *ngIf="(proj.ft_descricao_projeto != 'Representante de OSC' && proj.ft_descricao_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(proj.ft_descricao_projeto == 'Representante')">
+                          <span *ngIf="(proj.ft_descricao_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -575,10 +586,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(proj.ft_status_projeto != 'Representante' && proj.ft_status_projeto != null)">
+                          <span *ngIf="(proj.ft_status_projeto != 'Representante de OSC' && proj.ft_status_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(proj.ft_status_projeto == 'Representante')">
+                          <span *ngIf="(proj.ft_status_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -593,10 +604,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(proj.ft_data_inicio_projeto != 'Representante' && proj.ft_data_inicio_projeto != null)">
+                          <span *ngIf="(proj.ft_data_inicio_projeto != 'Representante de OSC' && proj.ft_data_inicio_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(proj.ft_data_inicio_projeto == 'Representante')">
+                          <span *ngIf="(proj.ft_data_inicio_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -612,10 +623,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(proj.ft_data_fim_projeto != 'Representante' && proj.ft_data_fim_projeto != null)">
+                          <span *ngIf="(proj.ft_data_fim_projeto != 'Representante de OSC' && proj.ft_data_fim_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(proj.ft_data_fim_projeto == 'Representante')">
+                          <span *ngIf="(proj.ft_data_fim_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -633,10 +644,10 @@
                         <ion-col col-7><div>
                           <strong (click)="presentAlert('Fonte', proj.ft_link_projeto)">
                             <ion-col col-1><div>
-                              <span *ngIf="(proj.ft_link_projeto != 'Representante' && proj.ft_link_projeto != null)">
+                              <span *ngIf="(proj.ft_link_projeto != 'Representante de OSC' && proj.ft_link_projeto != null)">
                                 <img class="img-base-dados" src="assets/img/base_dados.png">
                               </span>
-                              <span *ngIf="(proj.ft_link_projeto == 'Representante')">
+                              <span *ngIf="(proj.ft_link_projeto == 'Representante de OSC')">
                                 <img  class="img-representante" src="assets/img/dado_representante.png">
                               </span>
                             </div></ion-col>
@@ -654,10 +665,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(proj.ft_total_beneficiarios != 'Representante' && proj.ft_total_beneficiarios != null)">
+                          <span *ngIf="(proj.ft_total_beneficiarios != 'Representante de OSC' && proj.ft_total_beneficiarios != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(proj.ft_total_beneficiarios == 'Representante')">
+                          <span *ngIf="(proj.ft_total_beneficiarios == 'Representante de OSC')">
                             <img class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -672,10 +683,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(proj.ft_valor_total_projeto != 'Representante' && proj.ft_valor_total_projeto != null)">
+                          <span *ngIf="(proj.ft_valor_total_projeto != 'Representante de OSC' && proj.ft_valor_total_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(proj.ft_valor_total_projeto == 'Representante')">
+                          <span *ngIf="(proj.ft_valor_total_projeto == 'Representante de OSC')">
                             <img class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -690,10 +701,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(proj.ft_valor_captado_projeto != 'Representante' && proj.ft_valor_captado_projeto != null)">
+                          <span *ngIf="(proj.ft_valor_captado_projeto != 'Representante de OSC' && proj.ft_valor_captado_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(proj.ft_valor_captado_projeto == 'Representante')">
+                          <span *ngIf="(proj.ft_valor_captado_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -719,10 +730,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(fonte_recursos.ft_fonte_recursos_projeto != 'Representante' && fonte_recursos.ft_fonte_recursos_projeto != null)">
+                          <span *ngIf="(fonte_recursos.ft_fonte_recursos_projeto != 'Representante de OSC' && fonte_recursos.ft_fonte_recursos_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(fonte_recursos.ft_fonte_recursos_projeto == 'Representante')">
+                          <span *ngIf="(fonte_recursos.ft_fonte_recursos_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -736,10 +747,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(proj.ft_abrangencia_projeto != 'Representante' && proj.ft_abrangencia_projeto != null)">
+                          <span *ngIf="(proj.ft_abrangencia_projeto != 'Representante de OSC' && proj.ft_abrangencia_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(proj.ft_abrangencia_projeto == 'Representante')">
+                          <span *ngIf="(proj.ft_abrangencia_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -754,10 +765,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(proj.ft_zona_atuacao_projeto != 'Representante' && proj.ft_zona_atuacao_projeto != null)">
+                          <span *ngIf="(proj.ft_zona_atuacao_projeto != 'Representante de OSC' && proj.ft_zona_atuacao_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(proj.ft_zona_atuacao_projeto == 'Representante')">
+                          <span *ngIf="(proj.ft_zona_atuacao_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -783,10 +794,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(localizacao.ft_nome_regiao_localizacao_projeto != 'Representante' && localizacao.ft_nome_regiao_localizacao_projeto != null)">
+                          <span *ngIf="(localizacao.ft_nome_regiao_localizacao_projeto != 'Representante de OSC' && localizacao.ft_nome_regiao_localizacao_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(localizacao.ft_nome_regiao_localizacao_projeto == 'Representante')">
+                          <span *ngIf="(localizacao.ft_nome_regiao_localizacao_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -813,10 +824,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(pub_ben.ft_publico_beneficiado_projeto != 'Representante' && pub_ben.ft_publico_beneficiado_projeto != null)">
+                          <span *ngIf="(pub_ben.ft_publico_beneficiado_projeto != 'Representante de OSC' && pub_ben.ft_publico_beneficiado_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(pub_ben.ft_publico_beneficiado_projeto == 'Representante')">
+                          <span *ngIf="(pub_ben.ft_publico_beneficiado_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -843,10 +854,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(osc_parceira.ft_osc_parceira_projeto != 'Representante' && osc_parceira.ft_osc_parceira_projeto != null)">
+                          <span *ngIf="(osc_parceira.ft_osc_parceira_projeto != 'Representante de OSC' && osc_parceira.ft_osc_parceira_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(osc_parceira.ft_osc_parceira_projeto == 'Representante')">
+                          <span *ngIf="(osc_parceira.ft_osc_parceira_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -873,10 +884,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(area_atuacao.ft_area_atuacao_outra_projeto != 'Representante' && area_atuacao.ft_area_atuacao_outra_projeto != null)">
+                          <span *ngIf="(area_atuacao.ft_area_atuacao_outra_projeto != 'Representante de OSC' && area_atuacao.ft_area_atuacao_outra_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(area_atuacao.ft_area_atuacao_outra_projeto == 'Representante')">
+                          <span *ngIf="(area_atuacao.ft_area_atuacao_outra_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -904,10 +915,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(financiador.ft_nome_financiador != 'Representante' && financiador.ft_nome_financiador != null)">
+                          <span *ngIf="(financiador.ft_nome_financiador != 'Representante de OSC' && financiador.ft_nome_financiador != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(financiador.ft_nome_financiador == 'Representante')">
+                          <span *ngIf="(financiador.ft_nome_financiador == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -923,10 +934,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(proj.ft_metodologia_monitoramento != 'Representante' && proj.ft_metodologia_monitoramento != null)">
+                          <span *ngIf="(proj.ft_metodologia_monitoramento != 'Representante de OSC' && proj.ft_metodologia_monitoramento != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(proj.ft_metodologia_monitoramento == 'Representante')">
+                          <span *ngIf="(proj.ft_metodologia_monitoramento == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -952,10 +963,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(objetivo.ft_objetivo_projeto != 'Representante' && objetivo.ft_objetivo_projeto != null)">
+                          <span *ngIf="(objetivo.ft_objetivo_projeto != 'Representante de OSC' && objetivo.ft_objetivo_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(objetivo.ft_objetivo_projeto == 'Representante')">
+                          <span *ngIf="(objetivo.ft_objetivo_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span>
                         </div></ion-col>
@@ -982,10 +993,10 @@
                     <ion-grid>
                       <ion-row>
                         <ion-col col-1><div>
-                          <span *ngIf="(objetivo_meta.ft_objetivo_projeto != 'Representante' && objetivo_meta.ft_objetivo_projeto != null)">
+                          <span *ngIf="(objetivo_meta.ft_objetivo_projeto != 'Representante de OSC' && objetivo_meta.ft_objetivo_projeto != null)">
                             <img class="img-base-dados" src="assets/img/base_dados.png">
                           </span>
-                          <span *ngIf="(objetivo_meta.ft_objetivo_projeto == 'Representante')">
+                          <span *ngIf="(objetivo_meta.ft_objetivo_projeto == 'Representante de OSC')">
                             <img  class="img-representante" src="assets/img/dado_representante.png">
                           </span></div>
                         </ion-col>

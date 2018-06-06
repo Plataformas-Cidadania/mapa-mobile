@@ -6,10 +6,10 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ServiceProvider {
 
-  api_osc:string = 'https://mapaosc.ipea.gov.br:8383/api/osc/'
-  api_search_geo = 'https://mapaosc.ipea.gov.br:8383/api/search/osc/geo/'
-  api_editais = 'https://mapaosc.ipea.gov.br:8383/api/edital'
-  api_autocomplete = 'https://mapaosc.ipea.gov.br:8383/api/search/osc/autocomplete/'
+  api_osc:string = 'https://mapaosc-desenv.ipea.gov.br:8383/api/osc/'
+  api_search_geo = 'https://mapaosc-desenv.ipea.gov.br:8383/api/search/osc/geo/'
+  api_editais = 'https://mapaosc-desenv.ipea.gov.br:8383/api/edital'
+  api_autocomplete = 'https://mapaosc-desenv.ipea.gov.br:8383/api/search/osc/autocomplete/'
 
   constructor(public http: Http) {
   }
@@ -27,7 +27,7 @@ export class ServiceProvider {
   }
 
   getAutoComplete(keyword){
-    var value = keyword.replace(/ /g, "+");
+    var value = this.replaceSpecialChars(keyword).replace(/ /g, '_').replace(/[\/|\\|\||:|#|@|$|&|!|?|(|)|\[|\]]/g, '').replace(/\./g, ','); //keyword.replace(/ /g, "+");
     var str = this.replaceSpecialChars(value);
     return this.http.get(this.api_autocomplete+str+"/10/0/0");
   }
